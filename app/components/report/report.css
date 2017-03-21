@@ -1,0 +1,5 @@
+body{
+	background:url(app/components/images/background_brown.png) no-repeat center center fixed !important;
+	background-size:cover;    width: 100%;
+    float: left;    
+}
