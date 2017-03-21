@@ -22,7 +22,9 @@
     "rxjs": "5.0.1",
     "systemjs": "0.19.37",
     "zone": "^0.3.4",
-    "zone.js": "^0.7.2"
+    "zone.js": "^0.7.2",
+      "npm": "3.10.10",
+    "@types/node": "6.10.0"
   },
   "devDependencies": {
     "live-server": "1.0.0",
