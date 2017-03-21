@@ -2,9 +2,10 @@
   "name": "grab-n-go",
   "version": "1.0.0",
   "description": "Grab and go",
-  "homepage": "http://www.google.com",
   "private": true,
   "scripts": {
+    "tsc:w": "tsc -w",
+    "tsc": "tsc",
     "start": "live-server"
   },
   "dependencies": {
@@ -25,7 +26,8 @@
   },
   "devDependencies": {
     "live-server": "1.0.0",
-    "typescript": "2.0.0"
+    "typescript": "2.0.0",
+    "@types/ws": "0.0.29"
   },
   "main": "systemjs.config.js",
   "author": "",
