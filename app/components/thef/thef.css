@@ -1,0 +1,5 @@
+body .test{
+	background:url(app/components/images/background_blue.png) no-repeat center center fixed !important;
+	background-size:cover;    width: 100%;
+    float: left;    
+}

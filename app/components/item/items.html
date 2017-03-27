@@ -1,0 +1,47 @@
+
+<div class="body_content_view_main index_cont">
+        <div class="body_content_view_header">
+            <div class="col-xs-4">
+                <img src="app/components/images/items-tab-icon.png" alt="">
+                <h2>Items</h2>
+            </div>
+            <div class="col-xs-8">
+                <div class="body_content_view_header_secrch">
+                    <input id="searchBox" class="text" type="text" placeholder="Search for Item by Name, Category or Price">
+                    <input class="submit" type="submit" value="">
+                </div>
+            </div>
+        </div>
+        <div class="body_content_view_content">
+            <div class="body_content_view_content_top">
+                <div class="col-xs-4"><h3>ITEMS Information</h3></div>
+                <div class="col-xs-8">
+                    <span>
+                        View All ITEMS <img src="app/components/images/View All Users-arrow.png" alt="">
+                        <!--<a href="#">View All ITEMS <img src="images/View All Users-arrow.png" alt=""></a>-->
+                    </span>
+                    <span>
+                        <div id="current_page"></div>
+                        <img src="app/components/images/next.png"  alt="">
+                        <img src="app/components/images/previous.png" alt="">
+                    </span>
+                    <span id="total_items_text"></span>
+                </div>
+            </div>
+            <div class="body_content_view_content_table">
+                <table id="itemsTable" class="table table-bordered table-hover" width="647">
+                    <thead>
+                        <tr>
+                            <th>ITEMS Name</th>
+                            <th>Barcode</th>
+                            <th>Price</th>
+                            <th>Taxable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+
