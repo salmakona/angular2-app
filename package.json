@@ -24,8 +24,12 @@
     "zone": "^0.3.4",
     "zone.js": "^0.7.2",
     "npm": "^4.4.1",
+<<<<<<< HEAD
     "@types/node": "^4.0.30",
     "angular2-jwt": "^0.2.0"
+=======
+    "@types/node": "^4.0.30"
+>>>>>>> 896b848c891e4961094cb3e44a7e269e0e29ca41
   },
   "devDependencies": {
     "live-server": "1.0.0",
