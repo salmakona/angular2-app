@@ -24,13 +24,15 @@
     "zone": "^0.3.4",
     "zone.js": "^0.7.2",
     "npm": "^4.4.1",
+
     "@types/node": "^4.0.30",
     "angular2-jwt": "^0.2.0"
   },
   "devDependencies": {
     "live-server": "1.0.0",
     "typescript": "2.0.0",
-    "@types/ws": "0.0.29"
+    "@types/ws": "0.0.29",
+    "@types/node": "^4.0.30"
   },
   "main": "systemjs.config.js",
   "author": "",
