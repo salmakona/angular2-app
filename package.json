@@ -1,7 +1,13 @@
 {
+<<<<<<< HEAD
   "name": "grabngo",
   "version": "1.0.0",
   "description": "",
+=======
+  "name": "grab-n-go",
+  "version": "1.0.0",
+  "description": "Grab and go",
+>>>>>>> 843cb06f9dce783b300bd924fd385b6b56c37440
   "private": true,
   "scripts": {
     "tsc:w": "tsc -w",
@@ -17,6 +23,7 @@
     "@angular/platform-browser": "2.4.6",
     "@angular/platform-browser-dynamic": "2.4.6",
     "@angular/router": "3.4.6",
+<<<<<<< HEAD
     "@types/express": "^4.0.35",
     "@types/node": "^4.0.30",
     "core-js": "2.4.0",
@@ -41,4 +48,26 @@
   "author": "Salma Kona Gugly",
   "license": "ISC",
   "keywords": []
+=======
+    "core-js": "2.4.0",
+    "host": "0.0.1",
+    "rxjs": "5.0.1",
+    "systemjs": "0.19.37",
+    "zone": "^0.3.4",
+    "zone.js": "^0.7.2",
+    "npm": "^4.4.1",
+
+    "@types/node": "^4.0.30",
+    "angular2-jwt": "^0.2.0"
+  },
+  "devDependencies": {
+    "live-server": "1.0.0",
+    "typescript": "2.0.0",
+    "@types/ws": "0.0.29",
+    "@types/node": "^4.0.30"
+  },
+  "main": "systemjs.config.js",
+  "author": "",
+  "license": "ISC"
+>>>>>>> 843cb06f9dce783b300bd924fd385b6b56c37440
 }

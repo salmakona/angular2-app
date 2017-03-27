@@ -1,0 +1,55 @@
+<div class="body_content_view_main index_cont">
+        <div class="body_content_view_header">
+            <div class="col-xs-4">
+                <img src="app/components/images/items-tab-icon.png" alt="">
+                <h2>Login</h2>
+            </div>
+            <div class="col-xs-8">
+                <div class="body_content_view_header_secrch">
+                    <input id="searchBox" class="text" type="text" placeholder="Search for Item by Name, Category or Price">
+                    <input class="submit" type="submit" value="">
+                </div>
+            </div>
+        </div>
+        <div class="body_content_view_content">
+            <div class="body_content_view_content_top">
+                <div class="col-xs-4"><h3>Login</h3></div>
+                    <div class="col-md-6 col-md-offset-3">
+                            <div class="login jumbotron center-block">
+                                <!--<form role="form" (submit)="login($event, phoneno.value, password.value)">
+                                <div class="form-group">
+                                    <label for="phoneno">Phone</label>
+                                    <input type="text" #phoneno class="form-control" id="phoneno" placeholder="Phone No">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" #password class="form-control" id="password" placeholder="Password">
+                                </div>
+                                <button type="submit" class="btn btn-default">Login</button>
+                                <a [routerLink]="['/signup']">Click here to Signup</a>
+                                </form>
+                            </div>-->
+
+                           <div class="login jumbotron center-block">
+                                <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+                                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !phone_num.valid }">
+                                        <label for="phone_num">Phone Number</label>
+                                        <input type="text" class="form-control" name="phone_num" [(ngModel)]="model.phone_num" #phone_num="ngModel" required />
+                                        <div *ngIf="f.submitted && !phone_num.valid" class="help-block">phone number is required</div>
+                                    </div>
+                                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !pin_num.valid }">
+                                        <label for="pin_num">Pin Number</label>
+                                        <input type="password" class="form-control" name="pin_num" [(ngModel)]="model.pin_num" #pin_num="ngModel" required />
+                                        <div *ngIf="f.submitted && !pin_num.valid" class="help-block">Pin is required</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button [disabled]="loading" class="btn btn-primary">Login</button>
+                                        <a [routerLink]="['/signup']">Register Here</a>
+                                        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                    </div>
+                                    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+                                </form>
+                            </div>
+                    </div>
+            </div>
+
