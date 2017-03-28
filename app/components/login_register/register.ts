@@ -17,23 +17,22 @@ export class Signup {
      
   }
 
-  signup(event:any, phone_num:number, pin_num:string){
-    event.preventDefault();
-    let body = JSON.stringify({ phone_num, pin_num });
-    console.log(body);
-    console.log(this.http.post('http://api.grabngo.market/api/auth', body, { headers: contentHeaders }));
-   return this.http.post('http://api.grabngo.market/api/auth', body, { headers: contentHeaders })
-        .subscribe(
-          response => {
-            localStorage.setItem('id_token', response.json().id_token);
-            this.alertService.success('Registration successful', true);
-            //this.router.navigate(['items']);
-          },
-          error => {
-            alert(error.text());
-            console.log(error.text());
-          }
-        );
+  signup(event:any, phone_num:number, passcode:string){
+      event.preventDefault();
+      let body = JSON.stringify({ phone_num, passcode });
+      console.log(body);
+      console.log(this.http.post('http://api.grabngo.market/api/users', body, { headers: contentHeaders }));
+      return this.http.post('http://api.grabngo.market/api/users', body, { headers: contentHeaders })
+          .subscribe(
+            response => {
+              //localStorage.setItem('id_token', response.json().user);
+              this.alertService.success('Registration successful', true);
+            },
+            error => {
+              alert(error.text());
+              console.log(error.text());
+            }
+          );
   }
 
   /*login(event:any) {
