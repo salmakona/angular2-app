@@ -9,11 +9,21 @@ import { AuthenticationService } from './login_register/authentication.service';
     providers:[AuthenticationService]
 })
 export class AppComponent {
-    loggedIn = false;
 
-    constructor(private _router: Router,private authenticationService: AuthenticationService,){
-        this._router.navigate(["/location"]);
-        this.loggedIn = this.authenticationService.isLoggedIn();
-        }
+        loggedIn = false;
+        constructor(private _router: Router,private authenticationService: AuthenticationService,){
+                this._router.navigate(["/location"]);
+                this.loggedIn = this.authenticationService.isLoggedIn();
+            }
+        
+        showlogin() {
+                if( this.loggedIn== true){
+                    console.log("Login salma");
+                    return true;   
+                }else{
+                    return false;
+                }
+            }
+
 }
 

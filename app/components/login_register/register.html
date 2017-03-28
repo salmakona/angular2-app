@@ -1,29 +1,26 @@
-<div class="body_content_view_main index_cont">
-        <div class="body_content_view_header">
-            <div class="col-xs-4">
-                <img src="app/components/images/items-tab-icon.png" alt="">
-                <h2>Signup</h2>
-            </div>
-            <div class="col-xs-8">
-    
-            </div>
-        </div>
+<div class="body_content_view_main location_cont">
+    <div class="location_cont_main">
         <div class="body_content_view_content">
             <div class="body_content_view_content_top">
                 <div class="col-xs-4"><h3>Signup</h3></div>
-                    <div class="login jumbotron center-block">
-                   
-                    <form role="form" (submit)="signup($event, phoneno.value, password.value)">
-                    <div class="form-group">
-                        <label for="phoneno">Phone No</label>
-                        <input type="text" #phoneno class="form-control" id="phoneno" placeholder="Phone No">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" #password class="form-control" id="password" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                    </div>
-                      </div>
-            </div>
+                    <div class="col-md-6 col-md-offset-3">
+                            <div class="login jumbotron center-block">
+                                <div class="login jumbotron center-block">
+                                    <form role="form" (submit)="signup($event, phoneno.value, password.value)">
+                                        <div class="form-group">
+                                            <label for="phoneno">Phone No</label>
+                                            <input type="text" #phoneno class="form-control" id="phoneno" placeholder="Phone No">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">Password</label>
+                                            <input type="password" #password class="form-control" id="password" placeholder="Password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Signup</button>
+                                        <a [routerLink]="['/login']">Login</a>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                     </div>
+                </div>
+        </div>

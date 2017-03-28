@@ -19,6 +19,7 @@
     "@angular/router": "3.4.6",
     "@types/express": "^4.0.35",
     "@types/node": "^4.0.30",
+    "angular2-jwt": "^0.2.0",
     "core-js": "2.4.0",
     "express": "^4.15.2",
     "host": "0.0.1",
@@ -41,14 +42,13 @@
   "main": "systemjs.config.js",
   "author": "Salma Kona Gugly",
   "license": "ISC",
-    "core-js": "2.4.0",
-    "host": "0.0.1",
-    "rxjs": "5.0.1",
-    "systemjs": "0.19.37",
-    "zone": "^0.3.4",
-    "zone.js": "^0.7.2",
-    "npm": "^4.4.1",
-
-    "@types/node": "^4.0.30",
-    "angular2-jwt": "^0.2.0"
-  }
+  "core-js": "2.4.0",
+  "host": "0.0.1",
+  "rxjs": "5.0.1",
+  "systemjs": "0.19.37",
+  "zone": "^0.3.4",
+  "zone.js": "^0.7.2",
+  "npm": "^4.4.1",
+  "@types/node": "^4.0.30",
+  "angular2-jwt": "^0.2.0"
+}

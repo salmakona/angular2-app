@@ -1194,4 +1194,17 @@ header h2{
 	margin:auto;
 	}
 }
+#location-bg-header a h3{
+	margin: right;
+}
 
+.location-bg-header ul li a .logout-bg{
+    background: url(images/logout-btn.png) left center no-repeat;
+    background-size: cover;
+    width: 102px;
+    height: 40px;
+    float: left;
+    -webkit-filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+
+}
