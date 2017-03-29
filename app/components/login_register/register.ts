@@ -34,7 +34,6 @@ export class Signup {
             }
           );
   }
-
   /*login(event:any) {
     event.preventDefault();
     this.router.navigate(['login']);

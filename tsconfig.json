@@ -3,11 +3,8 @@
     "target": "ES5",
     "module": "commonjs",
     "experimentalDecorators": true,
-<<<<<<< HEAD
     "noImplicitAny": true,
      "outDir": "build"
-=======
-    "noImplicitAny": true
->>>>>>> 843cb06f9dce783b300bd924fd385b6b56c37440
+
   }
 }

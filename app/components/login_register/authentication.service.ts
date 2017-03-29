@@ -7,12 +7,13 @@ import { tokenNotExpired } from 'angular2-jwt';
 
 @Injectable()
 export class AuthenticationService {
-     public token: string;
-     private loggedIn = false;
+
+    public token: string;
+    private loggedIn = false;
+
     constructor(private http: Http) {
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this.token = currentUser && currentUser.token;
-        this.loggedIn = !!localStorage.getItem('token');
+        this.token =localStorage.getItem('currentUser.passcode');
      }
 
  login(event:any,phone_num:number, passcode:string): Observable<boolean> {
@@ -38,7 +39,6 @@ export class AuthenticationService {
                     this.token = user.passcode;
                     // store user and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify({ phone_num: phone_num, passcode: passcode,token: user.cc_token }));
-
                     // return true to indicate successful login
                     return true;
                 } else {
@@ -55,6 +55,7 @@ export class AuthenticationService {
         localStorage.removeItem('currentUser');
     }
      isLoggedIn(){
+         console.log(this.token);
         return this.loggedIn;
     }
 

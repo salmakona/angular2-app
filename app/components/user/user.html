@@ -36,7 +36,7 @@
                 </span>
                 <span>
                     <div id="current_page">1</div>
-                    <img src="app/components/images/next-user.png"  alt="">
+                    <img src="app/components/images/next-user.png"  (click)="next()" alt="" id="next_page">
                     <img src="app/components/images/previous-user.png"  alt="">
                 </span>
                 <span id="total_items_text">Total User: 2447</span>
@@ -47,16 +47,23 @@
                 <thead>
                     <tr>
                         <th>Phone</th>
-                        <th>Link</th>
-                        <th>Rate 1</th>
-                        <th>User Name</th>
-                        <th>Rate 2</th>
+                        <th>customer_id</th>
+                        <th>Balance</th>
+                        <th>Id</th>
                         <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        
+                    <tr *ngFor="let post of xx">
+                 
+                        <td class="first-td"><span class="minus-user"></span>{{post.phone_num}}</td>
+                        <td class="first-td">{{post.customer_id}}</td>
+                        <td class="first-td">{{post.balance}}</td>
+                        <td class="first-td">{{post._id}}</td>
+                        <td class="first-td">{{post.signup_date}}</td>
+
+                    </tr>
+                    <!--<tr>
                         <td class="first-td"><span class="minus-user"></span><input type="text" placeholder="(858) 736-6808 "> </td>
                         <td><input type="text" placeholder=" Link Logistics"></td>
                         <td><input type="text" placeholder="$11.50 "></td>
@@ -64,69 +71,7 @@
                         <td><input type="text" placeholder="$150.00"> </td>
                         <td><input type="text" placeholder="6/21/2016"></td>
                     </tr>
-                    <tr>
-                        
-                        <td class="first-td"><span class="minus-user"></span><input type="text" placeholder="(858) 736-6808 "> </td>
-                        <td><input type="text" placeholder=" Link Logistics"></td>
-                        <td><input type="text" placeholder="$11.50 "></td>
-                        <td><input type="text" placeholder="Coke Zero"></td>
-                        <td><input type="text" placeholder="$150.00"> </td>
-                        <td><input type="text" placeholder="6/21/2016"></td>
-                    </tr>
-                    <tr>
-                        
-                        <td class="first-td"><span class="minus-user"></span><input type="text" placeholder="(858) 736-6808 "> </td>
-                        <td><input type="text" placeholder=" Link Logistics"></td>
-                        <td><input type="text" placeholder="$11.50 "></td>
-                        <td><input type="text" placeholder="Coke Zero"></td>
-                        <td><input type="text" placeholder="$150.00"> </td>
-                        <td><input type="text" placeholder="6/21/2016"></td>
-                    </tr>
-                    <tr>
-                        
-                        <td class="first-td"><span class="minus-user"></span><input type="text" placeholder="(858) 736-6808 "> </td>
-                        <td><input type="text" placeholder=" Link Logistics"></td>
-                        <td><input type="text" placeholder="$11.50 "></td>
-                        <td><input type="text" placeholder="Coke Zero"></td>
-                        <td><input type="text" placeholder="$150.00"> </td>
-                        <td><input type="text" placeholder="6/21/2016"></td>
-                    </tr>
-                    <tr>
-                        
-                        <td class="first-td"><span class="minus-user"></span><input type="text" placeholder="(858) 736-6808 "> </td>
-                        <td><input type="text" placeholder=" Link Logistics"></td>
-                        <td><input type="text" placeholder="$11.50 "></td>
-                        <td><input type="text" placeholder="Coke Zero"></td>
-                        <td><input type="text" placeholder="$150.00"> </td>
-                        <td><input type="text" placeholder="6/21/2016"></td>
-                    </tr>
-                    <tr>
-                        
-                        <td class="first-td"><span class="minus-user"></span><input type="text" placeholder="(858) 736-6808 "> </td>
-                        <td><input type="text" placeholder=" Link Logistics"></td>
-                        <td><input type="text" placeholder="$11.50 "></td>
-                        <td><input type="text" placeholder="Coke Zero"></td>
-                        <td><input type="text" placeholder="$150.00"> </td>
-                        <td><input type="text" placeholder="6/21/2016"></td>
-                    </tr>
-                    <tr>
-                        
-                        <td class="first-td"><span class="minus-user"></span><input type="text" placeholder="(858) 736-6808 "> </td>
-                        <td><input type="text" placeholder=" Link Logistics"></td>
-                        <td><input type="text" placeholder="$11.50 "></td>
-                        <td><input type="text" placeholder="Coke Zero"></td>
-                        <td><input type="text" placeholder="$150.00"> </td>
-                        <td><input type="text" placeholder="6/21/2016"></td>
-                    </tr>
-                    <tr>
-                        
-                        <td class="first-td"><span class="minus-user"></span><input type="text" placeholder="(858) 736-6808 "> </td>
-                        <td><input type="text" placeholder=" Link Logistics"></td>
-                        <td><input type="text" placeholder="$11.50 "></td>
-                        <td><input type="text" placeholder="Coke Zero"></td>
-                        <td><input type="text" placeholder="$150.00"> </td>
-                        <td><input type="text" placeholder="6/21/2016"></td>
-                    </tr>
+                     -->
                 </tbody>
             </table>
         </div>

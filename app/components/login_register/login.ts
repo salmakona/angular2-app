@@ -52,4 +52,6 @@ export class LoginComponent implements OnInit{
             event.preventDefault();
             this.router.navigate(['signup']);
         }*/
+
+        
 }

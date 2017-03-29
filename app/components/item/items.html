@@ -1,3 +1,4 @@
+
  <div class="col-xs-4">
             <div class="body_header">
                 <div class="container">
@@ -33,8 +34,8 @@
                     </span>
                     <span>
                         <div id="current_page"></div>
-                        <img src="app/components/images/next.png"  alt="">
-                        <img src="app/components/images/previous.png" alt="">
+                        <img src="app/components/images/next.png"  (click)="next()" alt="" id="next_page">
+                        <img src="app/components/images/previous.png" (click)="previous()" alt="" id="previous_page">
                     </span>
                     <span id="total_items_text"></span>
                 </div>
@@ -49,8 +50,16 @@
                             <th>Taxable</th>
                         </tr>
                     </thead>
+
                     <tbody>
-                        
+                         <tr *ngFor="let post of xx">
+                                
+                                   <td><h4>{{post.description}}</h4></td>
+                                    <td><h4>{{post.barcode}}</h4></td>
+                                    <td><h4>{{post.price}}</h4></td>
+                                    <td><h4>{{post.taxable}}</h4></td>
+                                
+                            </tr>
                     </tbody>
                 </table>
             </div>

@@ -10,6 +10,7 @@ import { AuthenticationService } from './login_register/authentication.service';
 })
 export class AppComponent {
 
+
         loggedIn = false;
         constructor(private _router: Router,private authenticationService: AuthenticationService,){
                 this._router.navigate(["/location"]);
@@ -24,6 +25,7 @@ export class AppComponent {
                     return false;
                 }
             }
+
 
 }
 
