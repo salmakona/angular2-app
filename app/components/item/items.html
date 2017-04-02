@@ -40,28 +40,43 @@
                     <span id="total_items_text"></span>
                 </div>
             </div>
+          
             <div class="body_content_view_content_table">
-                <table id="itemsTable" class="table table-bordered table-hover" width="647">
-                    <thead>
-                        <tr>
-                            <th>ITEMS Name</th>
-                            <th>Barcode</th>
-                            <th>Price</th>
-                            <th>Taxable</th>
-                        </tr>
+       
+                <table id="itemsTable" class="table table-bordered table-hover" width="auto">
+                    <thead item-width="100%">
+                    <tr>
+                        <th>Descrition</th>
+                        <th>Barcode</th>
+                        <th>Price</th>
+                        <th>Taxable</th>
+                        <th>Update</th>
+                    </tr>
                     </thead>
-
-                    <tbody>
-                         <tr *ngFor="let post of xx">
-                                
-                                   <td><h4>{{post.description}}</h4></td>
-                                    <td><h4>{{post.barcode}}</h4></td>
-                                    <td><h4>{{post.price}}</h4></td>
-                                    <td><h4>{{post.taxable}}</h4></td>
-                                
-                            </tr>
+                    <tbody item-width="100%">
+                            <tr *ngFor="let post of xx">
+                                  <form #f="ngForm" (ngSubmit)="update(f.value)">
+                                        <td class="first-td">
+                                            <input [(ngModel)]="post.description" name="description">
+                                        </td>
+                                        <td class="first-td">
+                                            <input type="text" [(ngModel)]="post.barcode" name="barcode"/>
+                                        </td>
+                                        <td class="first-td">
+                                            <input type="text" [(ngModel)]="post.price" name="price"/>
+                                        </td>
+                                        <td class="first-td">
+                                            <input type="text" [(ngModel)]="post.taxable" name="taxable"/>
+                                        </td>
+                                        <td>
+                                            <button type="submit" class="Submit">Update</button>  
+                                            <input type="hidden" [(ngModel)]="post._id" name="_id"> 
+                                        </td>
+                                   </form>
+                            </tr>  
                     </tbody>
                 </table>
+           
             </div>
         </div>
 </div>

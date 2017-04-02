@@ -1,9 +1,11 @@
-import {Component,OnInit,NgModule} from '@angular/core';
-import {Http, Response, Headers, RequestOptions}from '@angular/http';
+import { Component, OnInit,NgModule,Input,Output } from '@angular/core';
+import {FormControl, FormGroup,FormBuilder, Validators} from '@angular/forms';
+import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { ItemService }       from './items_service';
+import {Http, Response, Headers, RequestOptions}from '@angular/http';
 
 @Component({
 
@@ -12,7 +14,7 @@ import { ItemService }       from './items_service';
 })
 export class ItemComponent {
 
-constructor(){}
+        constructor (private http: Http) {}
   
     jsonURL1 = "http://api.grabngo.market/api/items";
     baseURL = "http://api.grabngo.market";
@@ -59,7 +61,6 @@ constructor(){}
             var itemsJson = JSON.parse(response);
             this.loadItems(itemsJson)
         });
-        
     }
 
     loadpagi() {
@@ -68,8 +69,6 @@ constructor(){}
             var itemsJson = JSON.parse(response);
             this.loadItems(itemsJson)
         });
-        
-        
     }
 
     loadItems(itemsJson:any){
@@ -91,7 +90,6 @@ constructor(){}
                     let itemsObj = itemsJson["items"];
                     console.log(itemsObj);
                     this.xx=itemsObj;
-                
     }
  
      next() {
@@ -113,52 +111,43 @@ constructor(){}
             this.load();
 
         }
-
-    loadItemsTable1(items_Json:any){
-           let paginationObj = items_Json["pagination"];
-             //console.log("Test"+paginationObj);
-            if(paginationObj != null)
-                {
-                    this.nextURL = paginationObj["next_page_endpoint"];
-                    this.prevURL = paginationObj["prev_page_endpoint"];
-                    var total_items = paginationObj["total_records"];
-                    var total_items_text = document.getElementById("total_items_text");
-                    total_items_text.innerHTML = "Total Items: " + total_items;
-                    var current_page = paginationObj["current_page"];
-                    var current_page_text = document.getElementById("current_page");
-                    current_page_text.innerHTML = current_page;
-                }
-                // We've got our items.  Let's parse and update the table!
-                var items_Obj = items_Json["items"];
-	            var output = document.querySelector('#itemsTable tbody');
-
-                    for(let item of items_Obj ){
-
-                        var row = document.createElement('tr');
-                        row.setAttribute('data-id', item["_id"]);
-                            for(let prop of ['description', 'barcode', 'price', 'taxable']){
-
-                                var td = document.createElement('td');
-                                td.setAttribute('data-label', prop);
-                                 td.onclick = function() {
-
-                                            var tr = this.parentNode;
-                                            var OriginalContent = $this.text();
-                                            this.addClass("cellEditing");
-                                            this.html("<input type='text' value='" + OriginalContent + "' />");
-                                            this.children().first().focus();
-                                            var label = this.attr("data-label");
-                                            var id = tr.getAttribute("data-id");
-
-                                 
-                                }
-                                
-                            }
-                    
+        
+        dd:string;
+        dy:string;  
+        submitted = false;
+        private getUrl ='http://api.grabngo.market/api/items/id';
+        private headers = new Headers({'Content-Type': 'application/json'});
+        update(formValue: any): Observable<any>{
+              console.log("submitted from");
+                    console.log("Form Button Clicked"); 
+                    //var x = formValue.customer_id;
+                    var y = formValue.barcode;
+                    var a = formValue.price;
+                    var b = formValue.taxable;
+                    var id= formValue._id;
+                    this.dy = y;
+                    var data = {
+                        "barcode":y,
+                        "price":a,
+                        "taxable":b,
+                        "id":id,
                     }
+                    console.log("Onclick");         
+                    console.log(data);
+                    const url = `${this.getUrl}/${id}`;
+                    console.log(url);
+                    return this.http.put(url, JSON.stringify(data), {headers: this.headers}).catch(this.handleError);
+   
+ }
 
-                
-            }
 
+    private handleError(error:any) {
+        let errMsg = (error.message) ? error.message :
+            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+            console.error(errMsg); // log to console instead
+            return Observable.throw(errMsg);
+    }
+    
+    
 }
 

@@ -2,7 +2,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule,ReactiveFormsModule }    from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent }  from './components/app.component';
 import {LocationComponent} from "./components/location/location";
@@ -19,8 +19,9 @@ import { AuthGuard } from './components/login_register/auth.guard';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AuthenticationService} from './components/login_register/authentication.service';
 
+
 @NgModule({
-    imports:      [ BrowserModule, routing,HttpModule,FormsModule],
+    imports:      [ BrowserModule, routing,HttpModule,FormsModule,ReactiveFormsModule],
     declarations: [ AppComponent, LocationComponent,ItemComponent,UserComponent,RefilsComponent,TheftcontrolComponent,ReportComponent,LoginComponent,Signup],
     providers:[
         AuthGuard,

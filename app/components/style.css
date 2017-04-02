@@ -314,12 +314,26 @@ header h2{
 .body_content_view_content_table{
     width: 100%;
     float: left;
-    padding: 0 20px;©
+    padding: 0 20px;
     position: relative;
 	}
 .body_content_view_content_table thead{
 	background:url(images/titlebar-bg.png) left center no-repeat;
     width: 100%;
+    position: relative;
+	}
+.body_content_view_content_table thead tr{
+	display: flex;
+    width: 100%;
+    position: relative;
+	}
+.body_content_view_content_table thead tr th{
+    width: 100%;
+    position: relative;
+	}
+.body_content_view_content_table tbody{
+    width: 100%;
+	flex: left;
     position: relative;
 	}
 .body_content_view_content_table thead .cellEditing{
@@ -329,6 +343,12 @@ header h2{
 .body_content_view_content_table .table-bordered{
 	border:inherit;
 	}
+.body_content_view_content_table .ng-untouched{
+	width:100%;
+	float: left;
+	}
+
+
 .body_content_view_content_table .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td{
 	border:inherit !important;
 	color:#80382B !important;
