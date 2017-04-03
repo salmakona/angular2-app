@@ -1,4 +1,7 @@
-
+<!--<form role="form" (keyup)="search($event, barcode.value)">
+  <input placeholder="Search for Item by description"  type="text"  name="description" >
+    <input type="text" #barcode class="form-control" id="barcode" placeholder="barcode">
+</form>-->
  <div class="col-xs-4">
             <div class="body_header">
                 <div class="container">
@@ -19,10 +22,13 @@
             </div>
             <div class="col-xs-8">
                 <div class="body_content_view_header_secrch">
-                    <div class="form-group">
-                        <input placeholder="Filter products by Name" class="form-control" type="text" [formControl]="descriptionFilter">
-                    </div>
-                      <!--<a [routerLink]="['/item-search']">Search</a>-->
+                            <div class="form-group">
+                                <input placeholder="Filter products by barcode,description" class="form-control" type="text" [formControl]="descriptionFilter">
+                            </div>
+                   <!-- <form role="form" (keyup)="search($event, barcode.value)" >
+                    <input type="text" #barcode class="form-control" id="barcode" placeholder="barcode" name="barcode">
+                    </form>-->
+
                 </div>
             </div>
         </div>
@@ -32,7 +38,6 @@
                 <div class="col-xs-8">
                     <span>
                         View All ITEMS <img src="app/components/images/View All Users-arrow.png" alt="">
-                        <!--<a href="#">View All ITEMS <img src="images/View All Users-arrow.png" alt=""></a>-->
                     </span>
                     <span>
                         <div id="current_page"></div>
@@ -48,16 +53,15 @@
                 <table id="itemsTable" class="table table-bordered table-hover" width="auto">
                     <thead item-width="100%">
                     <tr>
-                        <th>Name</th>
+                        <th>Descrition</th>
                         <th>Barcode</th>
                         <th>Price</th>
                         <th>Taxable</th>
-                        <th>Update</th>
                     </tr>
                     </thead>
                     <tbody item-width="100%">
                             <tr *ngFor="let post of xx | filter:'description':filterCriteria">
-                                  <form #f="ngForm" (ngSubmit)="update_value(f.value)">
+                                 
                                         <td class="first-td">
                                             <input [(ngModel)]="post.description" name="description">
                                         </td>
@@ -70,11 +74,7 @@
                                         <td class="first-td">
                                             <input type="text" [(ngModel)]="post.taxable" name="taxable"/>
                                         </td>
-                                        <td>
-                                            <button type="submit" class="Submit">Update</button>  
-                                            <input type="hidden" [(ngModel)]="post._id" name="_id"> 
-                                        </td>
-                                   </form>
+                                   
                             </tr>  
                     </tbody>
                 </table>
@@ -82,3 +82,5 @@
         </div>
 </div>
 
+
+       

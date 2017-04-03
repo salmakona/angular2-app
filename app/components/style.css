@@ -1,13 +1,13 @@
 span@charset "UTF-8";
 /* CSS Document */
 @font-face {
-	font-family:'../Cardenio Modern';
-	src: url('../CardenioModern-Bold.eot');
-	src: url('../CardenioModern-Bold.eot?#iefix') format('embedded-opentype'),
-		url('../CardenioModern-Bold.woff2') format('woff2'),
-		url('../CardenioModern-Bold.woff') format('woff'),
-		url('../CardenioModern-Bold.ttf') format('truetype'),
-		url('../CardenioModern-Bold.svg#CardenioModern-Bold') format('svg');
+	font-family:'../fonts/Cardenio Modern';
+	src: url('../fonts/CardenioModern-Bold.eot');
+	src: url('../fonts/CardenioModern-Bold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/CardenioModern-Bold.woff2') format('woff2'),
+		url('../fonts/CardenioModern-Bold.woff') format('woff'),
+		url('../fonts/CardenioModern-Bold.ttf') format('truetype'),
+		url('../fonts/CardenioModern-Bold.svg#CardenioModern-Bold') format('svg');
 	font-weight: bold;
 	font-style: normal;
 }

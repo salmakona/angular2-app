@@ -10,7 +10,9 @@ import {ReportComponent} from "./report/report";
 import {LoginComponent} from './login_register/login';
 import { Signup } from './login_register/register';
 import { AuthGuard } from './login_register/auth.guard';
- import { AuthHttp } from 'angular2-jwt';
+import { AuthHttp } from 'angular2-jwt';
+import { ItemSearchComponent }  from './item/search_item';
+
 
 const routes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -22,6 +24,7 @@ const routes: Routes = [
     {path: 'theftcontrol', component: TheftcontrolComponent,canActivate: [AuthGuard]},
     {path: 'report', component: ReportComponent,canActivate: [AuthGuard]},
     {path: 'items', component: ItemComponent,canActivate: [AuthGuard]},
+    {path: 'item-search', component: ItemSearchComponent,canActivate: [AuthGuard]},
 
 
       
