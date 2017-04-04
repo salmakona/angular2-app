@@ -48,31 +48,34 @@
                 <table id="itemsTable" class="table table-bordered table-hover" width="auto">
                     <thead item-width="100%">
                     <tr>
-                        <th>Name</th>
+                        <th>Item Name</th>
                         <th>Barcode</th>
                         <th>Price</th>
                         <th>Taxable</th>
-                        <th>Update</th>
+                        <!--<th>Update</th>-->
                     </tr>
                     </thead>
                     <tbody item-width="100%">
                             <tr *ngFor="let post of xx | filter:'description':filterCriteria">
                                   <form #f="ngForm" (ngSubmit)="update_value(f.value)">
                                         <td class="first-td">
+                                            <span class="minus-user"></span>
                                             <input [(ngModel)]="post.description" name="description">
                                         </td>
-                                        <td class="first-td">
+                                        <td>
                                             <input type="text" [(ngModel)]="post.barcode" name="barcode"/>
                                         </td>
-                                        <td class="first-td">
+                                        <td>
                                             <input type="text" [(ngModel)]="post.price" name="price"/>
                                         </td>
-                                        <td class="first-td">
+                                        <td>
                                             <input type="text" [(ngModel)]="post.taxable" name="taxable"/>
                                         </td>
-                                        <td>
-                                            <button type="submit" class="Submit">Update</button>  
-                                            <input type="hidden" [(ngModel)]="post._id" name="_id"> 
+                                       
+                                        <td style="display: none">
+                                             <input type="hidden" [(ngModel)]="post._id" name="_id"> 
+                                            <button type="submit" class="Submit" >Update</button> 
+                                            
                                         </td>
                                    </form>
                             </tr>  

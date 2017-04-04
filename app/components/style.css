@@ -1,16 +1,18 @@
 span@charset "UTF-8";
 /* CSS Document */
 @font-face {
-	font-family:'../fonts/Cardenio Modern';
-	src: url('../fonts/CardenioModern-Bold.eot');
-	src: url('../fonts/CardenioModern-Bold.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/CardenioModern-Bold.woff2') format('woff2'),
-		url('../fonts/CardenioModern-Bold.woff') format('woff'),
-		url('../fonts/CardenioModern-Bold.ttf') format('truetype'),
-		url('../fonts/CardenioModern-Bold.svg#CardenioModern-Bold') format('svg');
+	font-family:'Cardenio Modern';
+	src: url('fonts/CardenioModern-Bold.eot');
+	src: url('fonts/CardenioModern-Bold.eot?#iefix') format('embedded-opentype');
+ 	src: url('fonts/CardenioModern-Bold.woff') format('woff');
 	font-weight: bold;
 	font-style: normal;
 }
+@font-face {
+  font-family: "Cardenio Modern";
+  src: url('fonts/CardenioModern-Bold.woff') format('woff');
+}
+
 body{
 	background:url(images/background_blue.png) no-repeat center center fixed;
 	background-size:cover;  
@@ -317,6 +319,21 @@ header h2{
     padding: 0 20px;
     position: relative;
 	}
+.body_content_view_content_table .minus-user{
+	background:url(images/Minus-user.png) left center no-repeat;
+	padding-left:20px;
+	width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+	top:10px;
+	}
+
+.body_content_view_content_table tr td{
+border: inherit !important;
+   color: #80382B !important;
+   font-size: 16px;
+	}
 .body_content_view_content_table thead{
 	background:url(images/titlebar-bg.png) left center no-repeat;
     width: 100%;
@@ -336,6 +353,18 @@ header h2{
 	flex: left;
     position: relative;
 	}
+
+
+.body_content_view_content_table tbody tr{
+	display: flex;
+    width: 100%;
+    position: relative;
+	}
+.body_content_view_content_table tbody tr td{
+    width: 100%;
+    position: relative;
+	}
+
 .body_content_view_content_table thead .cellEditing{
 	float:left;
 	width:auto !important;
@@ -346,6 +375,7 @@ header h2{
 .body_content_view_content_table .ng-untouched{
 	width:100%;
 	float: left;
+	display: flex;
 	}
 
 
@@ -634,6 +664,7 @@ header h2{
 	float:left;
 	margin-left:20px;
 	}
+
 .body_content_view_content_table_user .minus-user{
 	background:url(images/Minus-user.png) left center no-repeat;
 	padding-left:20px;

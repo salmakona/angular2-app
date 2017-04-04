@@ -28,7 +28,7 @@ export class ItemSearchComponent {
 
 constructor(private itemSearchService: ItemSearchService,private http: Http) {}
 
-private getUrl ='http://api.grabngo.market/api/items/barcode';
+private getUrl ='https://api.grabngo.market/api/items/barcode';
 
 search(event:any, barcode:string){
     this.itemSearchService.serch_item(barcode)
@@ -49,8 +49,8 @@ search(event:any, barcode:string){
       }
 
     
-    jsonURL1 = "http://api.grabngo.market/api/items";
-    baseURL = "http://api.grabngo.market";
+    jsonURL1 = "https://api.grabngo.market/api/items";
+    baseURL = "https://api.grabngo.market";
     nextURL = "";
     prevURL = "";
     _id:number;
@@ -142,7 +142,7 @@ search(event:any, barcode:string){
 
         ngOnInit(){
 
-            this.jsonURL = 'http://api.grabngo.market/api/items';
+            this.jsonURL = 'https://api.grabngo.market/api/items';
             this.load();
             this.barcodeFilter.valueChanges
              this.descriptionFilter.valueChanges

@@ -10,7 +10,7 @@ import { URLSearchParams } from '@angular/http';
 export class ItemSearchService {
 
   constructor(private http: Http) {}
-  private getUrl ='http://api.grabngo.market/api/items/barcode';
+  private getUrl ='https://api.grabngo.market/api/items/barcode';
 
   serch_item(barcode:any){
 

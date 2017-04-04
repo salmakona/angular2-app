@@ -21,8 +21,8 @@ export class ItemComponent implements OnInit{
 
     constructor (private http: Http, private location: Location) {}
             
-    jsonURL1 = "http://api.grabngo.market/api/items";
-    baseURL = "http://api.grabngo.market";
+    jsonURL1 = "https://api.grabngo.market/api/items";
+    baseURL = "https://api.grabngo.market";
     nextURL = "";
     prevURL = "";
     _id:number;
@@ -105,7 +105,7 @@ export class ItemComponent implements OnInit{
 
     ngOnInit(){
 
-        this.jsonURL = 'http://api.grabngo.market/api/items';
+        this.jsonURL = 'https://api.grabngo.market/api/items';
         this.load();
         this.descriptionFilter.valueChanges
         .debounceTime(100)
@@ -118,7 +118,7 @@ export class ItemComponent implements OnInit{
     dd:string;
     dy:string;  
     submitted = false;
-    private getUrl ='http://api.grabngo.market/api/items/id';
+    private getUrl ='https://api.grabngo.market/api/items/id';
     private headers = new Headers({'Content-Type': 'application/json'});
 
     update(formValue: any): Observable<any>{

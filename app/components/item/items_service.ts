@@ -11,7 +11,7 @@ export class ItemService {
     constructor (private http: Http) {}
 
       getData():Observable<any[]> {
-          return this.http.get('api.grabngo.market/api/items')
+          return this.http.get('https://api.grabngo.market/api/items')
               .map(this.extractData)
               .catch(this.handleError);
       }
