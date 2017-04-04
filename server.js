@@ -6,7 +6,24 @@ app.use('/', express.static(path.join(__dirname)));
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
-var server = app.listen(8080, "localhost", function () {
-    var _a = server.address(), address = _a.address, port = _a.port;
-    console.log('Listening on %s %s', address, port);
-});
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+var server = app.listen(port);
