@@ -21,8 +21,8 @@ export class Signup {
       event.preventDefault();
       let body = JSON.stringify({ phone_num, passcode });
       console.log(body);
-      console.log(this.http.post('http://api.grabngo.market/api/users', body, { headers: contentHeaders }));
-      return this.http.post('http://api.grabngo.market/api/users', body, { headers: contentHeaders })
+      console.log(this.http.post('https://api.grabngo.market/api/users', body, { headers: contentHeaders }));
+      return this.http.post('https://api.grabngo.market/api/users', body, { headers: contentHeaders })
           .subscribe(
             response => {
               //localStorage.setItem('id_token', response.json().user);

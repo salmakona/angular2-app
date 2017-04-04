@@ -7,7 +7,7 @@ declare var Auth0Lock: any;
 @Injectable()
 export class AuthService {
   // We'll use the Auth0 Lock widget for capturing user credentials
-  lock = new Auth0Lock('YOUR-AUTH0-CLIENTID', 'http://api.grabngo.market/api/auth');
+  lock = new Auth0Lock('YOUR-AUTH0-CLIENTID', 'https://api.grabngo.market/api/auth');
 
   constructor(private router: Router) {
     // We'll listen for an authentication event to be raised and if successful will log the user in.
