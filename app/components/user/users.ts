@@ -6,8 +6,8 @@ import {Component} from '@angular/core';
 
 export class UserComponent {
 
-    jsonURL1 = "http://api.grabngo.market/api/users";
-    baseURL = "http://api.grabngo.market";
+    jsonURL1 = "https://api.grabngo.market/api/users";
+    baseURL = "https://api.grabngo.market";
     nextURL = "";
     prevURL = "";
     _id:number;
@@ -93,7 +93,7 @@ export class UserComponent {
         }
 
         ngOnInit(){
-            this.jsonURL = 'http://api.grabngo.market/api/users';
+            this.jsonURL = 'https://api.grabngo.market/api/users';
             this.load();
 
         }
