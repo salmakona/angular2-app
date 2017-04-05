@@ -12,9 +12,7 @@ var RefilsComponent = (function () {
     RefilsComponent = __decorate([
         core_1.Component({
             selector: 'refils',
-            templateUrl: 'app/components/refils/refils.html',
-            //styleUrls:['app/components/refils/refils.css'],
-            encapsulation: core_1.ViewEncapsulation.None
+            templateUrl: 'app/components/refils/refils.html'
         })
     ], RefilsComponent);
     return RefilsComponent;

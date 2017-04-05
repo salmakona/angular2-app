@@ -21,6 +21,6 @@ var routes = [
     { path: 'theftcontrol', component: theftcontrol_1.TheftcontrolComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'report', component: report_1.ReportComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'items', component: items_1.ItemComponent, canActivate: [auth_guard_1.AuthGuard] },
-    { path: 'item-search', component: search_item_1.ItemSearchComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'item-search', component: search_item_1.ItemSearchComponent, canActivate: [auth_guard_1.AuthGuard] }
 ];
 exports.routing = router_1.RouterModule.forRoot(routes);

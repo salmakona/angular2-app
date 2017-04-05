@@ -1,8 +1,6 @@
-import {ViewEncapsulation,Component} from '@angular/core';
+import {Component} from '@angular/core';
 @Component({
     selector: 'refils',
-    templateUrl:'app/components/refils/refils.html',
-    //styleUrls:['app/components/refils/refils.css'],
-    encapsulation:ViewEncapsulation.None
+    templateUrl:'app/components/refils/refils.html'
 })
 export class RefilsComponent{}

@@ -12,9 +12,7 @@ var TheftcontrolComponent = (function () {
     TheftcontrolComponent = __decorate([
         core_1.Component({
             selector: 'theftcontrol',
-            templateUrl: 'app/components/thef/theft_control.html',
-            //styleUrls:['app/components/thef/thef.css'],
-            encapsulation: core_1.ViewEncapsulation.None
+            templateUrl: 'app/components/thef/theft_control.html'
         })
     ], TheftcontrolComponent);
     return TheftcontrolComponent;

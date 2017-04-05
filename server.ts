@@ -10,7 +10,23 @@ app.get('/', (req, res) => {
 });
 
 
-const server = app.listen(8080, "localhost", () => {
-    const {address, port} = server.address();
-    console.log('Listening on %s %s', address, port);
-});
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+function normalizePort(val:any) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+ 
+    return val;
+  }
+
+  if (port >= 0) {
+
+    return port;
+  }
+
+  return false;
+}
+
+var server = app.listen(port);

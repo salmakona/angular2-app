@@ -30,8 +30,8 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, app_routing_1.routing, http_1.HttpModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
-            declarations: [app_component_1.AppComponent, location_1.LocationComponent, items_1.ItemComponent, users_1.UserComponent, refils_1.RefilsComponent, theftcontrol_1.TheftcontrolComponent,
-                report_1.ReportComponent, login_1.LoginComponent, register_1.Signup, search_item_1.ItemSearchComponent, filter_pipe_1.FilterPipe],
+            declarations: [app_component_1.AppComponent, location_1.LocationComponent, items_1.ItemComponent, search_item_1.ItemSearchComponent, filter_pipe_1.FilterPipe, users_1.UserComponent, refils_1.RefilsComponent, theftcontrol_1.TheftcontrolComponent,
+                report_1.ReportComponent, login_1.LoginComponent, register_1.Signup],
             providers: [
                 auth_guard_1.AuthGuard,
                 { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],

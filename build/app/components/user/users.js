@@ -80,8 +80,7 @@ var UserComponent = (function () {
     UserComponent = __decorate([
         core_1.Component({
             selector: 'users',
-            templateUrl: 'app/components/user/user.html',
-            styleUrls: ['app/components/user/user.css'],
+            templateUrl: 'app/components/user/user.html'
         })
     ], UserComponent);
     return UserComponent;

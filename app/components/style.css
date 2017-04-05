@@ -657,13 +657,21 @@ border: inherit !important;
 	}
 /*End Report CSS*/
 /*Start user CSS*/
+
+.body_content_view_content_top .item_add{
+	background:url(images/Add_item.png) center center no-repeat;
+	width:20px;
+	height:20px;
+	float:left;
+	margin-left:20px;
+}
 .body_content_view_content_top_user .user_add{
 	background:url(images/Add-user.png) center center no-repeat;
 	width:20px;
 	height:20px;
 	float:left;
 	margin-left:20px;
-	}
+}
 
 .body_content_view_content_table_user .minus-user{
 	background:url(images/Minus-user.png) left center no-repeat;

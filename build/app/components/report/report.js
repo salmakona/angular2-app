@@ -12,9 +12,7 @@ var ReportComponent = (function () {
     ReportComponent = __decorate([
         core_1.Component({
             selector: 'report',
-            templateUrl: 'app/components/report/report.html',
-            //styleUrls:['app/components/report/report.css'],
-            encapsulation: core_1.ViewEncapsulation.None,
+            templateUrl: 'app/components/report/report.html'
         })
     ], ReportComponent);
     return ReportComponent;

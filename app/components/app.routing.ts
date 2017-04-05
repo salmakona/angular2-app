@@ -24,19 +24,7 @@ const routes: Routes = [
     {path: 'theftcontrol', component: TheftcontrolComponent,canActivate: [AuthGuard]},
     {path: 'report', component: ReportComponent,canActivate: [AuthGuard]},
     {path: 'items', component: ItemComponent,canActivate: [AuthGuard]},
-    {path: 'item-search', component: ItemSearchComponent,canActivate: [AuthGuard]},
-
-
-      
-    /*{path: 'location', component: LocationComponent},
-    {path: 'users', component: UserComponent},
-    {path: 'refils', component: RefilsComponent},
-    {path: 'theftcontrol', component: TheftcontrolComponent},
-    {path: 'report', component: ReportComponent},
-    {path: 'items', component: ItemComponent},
-    { path: 'login',component: LoginComponent },
-    { path: 'signup', component: Signup }*/
-  
+    {path: 'item-search', component: ItemSearchComponent,canActivate: [AuthGuard]}
     
 ];
 

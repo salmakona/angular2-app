@@ -25,8 +25,8 @@ import {FilterPipe} from "./components/item/filter_pipe";
 
 @NgModule({
     imports:      [ BrowserModule, routing,HttpModule,FormsModule,ReactiveFormsModule],
-    declarations: [ AppComponent, LocationComponent,ItemComponent,UserComponent,RefilsComponent,TheftcontrolComponent,
-    ReportComponent,LoginComponent,Signup,ItemSearchComponent, FilterPipe],
+    declarations: [ AppComponent, LocationComponent,ItemComponent,ItemSearchComponent, FilterPipe,UserComponent,RefilsComponent,TheftcontrolComponent,
+    ReportComponent,LoginComponent,Signup],
     providers:[
         AuthGuard,
         {provide: LocationStrategy, useClass: HashLocationStrategy}],

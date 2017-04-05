@@ -19,7 +19,7 @@ var AuthenticationService = (function () {
         var _this = this;
         //event.preventDefault();
         var body = JSON.stringify({ phone_num: phone_num, passcode: passcode });
-        return this.http.post('http://api.grabngo.market/api/auth', body, { headers: headers_1.contentHeaders })
+        return this.http.post('https://api.grabngo.market/api/auth', body, { headers: headers_1.contentHeaders })
             .map(function (response) {
             // login successful if there's a jwt token in the response
             //console.log(response.json());

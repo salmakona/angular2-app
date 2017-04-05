@@ -19,8 +19,8 @@ var Signup = (function () {
         event.preventDefault();
         var body = JSON.stringify({ phone_num: phone_num, passcode: passcode });
         console.log(body);
-        console.log(this.http.post('http://api.grabngo.market/api/users', body, { headers: headers_1.contentHeaders }));
-        return this.http.post('http://api.grabngo.market/api/users', body, { headers: headers_1.contentHeaders })
+        console.log(this.http.post('https://api.grabngo.market/api/users', body, { headers: headers_1.contentHeaders }));
+        return this.http.post('https://api.grabngo.market/api/users', body, { headers: headers_1.contentHeaders })
             .subscribe(function (response) {
             //localStorage.setItem('id_token', response.json().user);
             _this.alertService.success('Registration successful', true);

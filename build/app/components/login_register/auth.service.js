@@ -12,7 +12,7 @@ var AuthService = (function () {
         var _this = this;
         this.router = router;
         // We'll use the Auth0 Lock widget for capturing user credentials
-        this.lock = new Auth0Lock('YOUR-AUTH0-CLIENTID', 'http://api.grabngo.market/api/auth');
+        this.lock = new Auth0Lock('YOUR-AUTH0-CLIENTID', 'https://api.grabngo.market/api/auth');
         // We'll listen for an authentication event to be raised and if successful will log the user in.
         this.lock.on('authenticated', function (authResult) {
             localStorage.setItem('id_token', authResult.idToken);

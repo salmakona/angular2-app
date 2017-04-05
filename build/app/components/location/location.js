@@ -12,8 +12,7 @@ var LocationComponent = (function () {
     LocationComponent = __decorate([
         core_1.Component({
             selector: 'location',
-            templateUrl: 'app/components/location/location.html',
-            encapsulation: core_1.ViewEncapsulation.None
+            templateUrl: 'app/components/location/location.html'
         })
     ], LocationComponent);
     return LocationComponent;
