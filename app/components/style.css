@@ -348,14 +348,19 @@ border: inherit !important;
     width: 100%;
     position: relative;
 	}
+
+
 .body_content_view_content_table tbody{
     width: 100%;
-	flex: left;
+	float: left;
     position: relative;
 	}
-
-
 .body_content_view_content_table tbody tr{
+	float: left;
+    width: 100%;
+    position: relative;
+	}
+.body_content_view_content_table tbody tr form{
 	display: flex;
     width: 100%;
     position: relative;
@@ -363,6 +368,7 @@ border: inherit !important;
 .body_content_view_content_table tbody tr td{
     width: 100%;
     position: relative;
+	padding: 8px;
 	}
 
 .body_content_view_content_table thead .cellEditing{
