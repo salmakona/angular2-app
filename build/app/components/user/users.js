@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require('@angular/core');
 var UserComponent = (function () {
     function UserComponent() {
-        this.jsonURL1 = "http://api.grabngo.market/api/users";
-        this.baseURL = "http://api.grabngo.market";
+        this.jsonURL1 = "https://api.grabngo.market/api/users";
+        this.baseURL = "https://api.grabngo.market";
         this.nextURL = "";
         this.prevURL = "";
         this.jsonURL = '';
@@ -74,7 +74,7 @@ var UserComponent = (function () {
         console.log("Privious " + this.jsonURL1);
     };
     UserComponent.prototype.ngOnInit = function () {
-        this.jsonURL = 'http://api.grabngo.market/api/users';
+        this.jsonURL = 'https://api.grabngo.market/api/users';
         this.load();
     };
     UserComponent = __decorate([

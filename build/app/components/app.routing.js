@@ -11,6 +11,7 @@ var login_1 = require('./login_register/login');
 var register_1 = require('./login_register/register');
 var auth_guard_1 = require('./login_register/auth.guard');
 var search_item_1 = require('./item/search_item');
+var view_location_1 = require("./location/view_location");
 var routes = [
     { path: 'login', component: login_1.LoginComponent },
     { path: 'signup', component: register_1.Signup },
@@ -21,6 +22,7 @@ var routes = [
     { path: 'theftcontrol', component: theftcontrol_1.TheftcontrolComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'report', component: report_1.ReportComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'items', component: items_1.ItemComponent, canActivate: [auth_guard_1.AuthGuard] },
-    { path: 'item-search', component: search_item_1.ItemSearchComponent, canActivate: [auth_guard_1.AuthGuard] }
+    { path: 'item-search', component: search_item_1.ItemSearchComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'viewlocation', component: view_location_1.ViewLocationComponent, canActivate: [auth_guard_1.AuthGuard] }
 ];
 exports.routing = router_1.RouterModule.forRoot(routes);

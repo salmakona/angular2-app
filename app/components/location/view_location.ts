@@ -3,8 +3,6 @@ import { Http, Response, Headers, RequestOptions,Jsonp } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import {Collapse} from './collapse.component';
-import {Directive, Input, HostBinding} from '@angular/core';
 
 @Component({
     selector: 'viewlocation',

@@ -24,6 +24,7 @@ var register_1 = require('./components/login_register/register');
 var auth_guard_1 = require('./components/login_register/auth.guard');
 var search_item_1 = require('./components/item/search_item');
 var filter_pipe_1 = require("./components/item/filter_pipe");
+var view_location_1 = require("./components/location/view_location");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -31,7 +32,7 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, app_routing_1.routing, http_1.HttpModule, forms_1.FormsModule, forms_1.ReactiveFormsModule],
             declarations: [app_component_1.AppComponent, location_1.LocationComponent, items_1.ItemComponent, search_item_1.ItemSearchComponent, filter_pipe_1.FilterPipe, users_1.UserComponent, refils_1.RefilsComponent, theftcontrol_1.TheftcontrolComponent,
-                report_1.ReportComponent, login_1.LoginComponent, register_1.Signup],
+                report_1.ReportComponent, login_1.LoginComponent, register_1.Signup, view_location_1.ViewLocationComponent],
             providers: [
                 auth_guard_1.AuthGuard,
                 { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
