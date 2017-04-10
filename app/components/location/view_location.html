@@ -1,0 +1,84 @@
+<div class="mainwrapper">
+    <div class="body_content">
+        <div class="container">
+            <div class="body_content_view_main_view location_cont">
+                <div class="css3-animated-example" *ngFor="let location of locationx">
+                    <h3 (click)="collapse(location)">
+                        <a ng-href="#"> 
+                            <div  *ngIf="location.isExpanded"> {{location.name}} <span class="minus"></span></div>
+                            <div  *ngIf="!location.isExpanded">{{location.name}} <span class="plus"></span></div>
+                        </a>
+                    </h3>
+                    <div [ngClass]="{'open': location.isExpanded, 'close': !location.isExpanded}">
+                            <h2>Statistics</h2>
+                            <li>Registerd User: {{location.registered_users}} </li>
+                            <li>Average Reload: {{location.average_reload}} </li>
+                            <li>Average Puschare: {{location.average_purchase}} </li>
+                            <!--Item-->
+                            <div class="sml_faq">
+                                <div class="css3-animated-example">
+                                    <h3 (click)="itemcollapse(location)"> 
+                                        <div  *ngIf="location.isitemExpanded"> Item  <span class="minus"></span></div>
+                                        <div  *ngIf="!location.isitemExpanded"> Item  <span class="plus"></span></div>
+                                    </h3>
+                                    <div [ngClass]="{'open': location.isitemExpanded, 'close': !location.isitemExpanded}">
+                                        <div class="content" >
+                                            <table>
+                                                <thead>
+                                                    <tr> 
+                                                        <th>Price</th>
+                                                        <th>barcode</th>
+                                                        <th>description</th>
+                                                        <th>id</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let items of location.items">
+                                                        <td>{{items.price}}</td>
+                                                        <td>{{items.barcode}}</td>
+                                                        <td>{{items.description}}</td>
+                                                        <td>{{items._id}}</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                <!--Inventory-->
+                            <div class="sml_faq">
+                                <div class="css3-animated-example">
+                                    <h3 (click)="inventorycollapse(location)">
+                                        <div *ngIf="location.isinevtoryExpanded">  Invebtory {{openin}} <span class="minus"></span></div>
+                                        <div *ngIf="!location.isinevtoryExpanded">  Invebtory {{openin}} <span class="plus"></span></div>
+                                    </h3>
+                                    <div [ngClass]="{'open': location.isinevtoryExpanded, 'close': !location.isinevtoryExpanded}">
+                                        <div class="content" >
+                                            <table>
+                                                <thead>
+                                                    <tr> 
+                                                        <th>Price</th>
+                                                        <th>barcode</th>
+                                                        <th>description</th>
+                                                        <th>id</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let inventory of location.inventory">
+                                                        <td>Price</td>
+                                                        <td>barcode</td>
+                                                        <td>description</td>
+                                                        <td>id</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>  
+         </div>
+     </div>     
+</div>

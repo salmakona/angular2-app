@@ -6,8 +6,8 @@
   "scripts": {
     "tsc:w": "tsc -w",
     "tsc": "tsc",
-     "start": "node server.js",
-    "dev": "live-server"
+     "start": "live-server",
+    "dev": "node server.js"
   },
   "dependencies": {
     "@angular/common": "2.4.6",

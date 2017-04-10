@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Grab-N-Go Express</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-
-    <script src="node_modules/typescript/lib/typescript.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="systemjs.config.js"></script>
-    <link rel="stylesheet" type="text/css" href="app/components/style.css">
-    <script>
-        System.import('app').catch(function (err) {console.error(err);});
-    </script>
+        <title>Grab-N-Go Express</title>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="node_modules/core-js/client/shim.min.js"></script>
+        <script src="node_modules/zone.js/dist/zone.js"></script>
+        <script src="node_modules/typescript/lib/typescript.js"></script>
+        <script src="node_modules/systemjs/dist/system.src.js"></script>
+         <script src="https://unpkg.com/web-animations-js@2.2.1"></script>
+        <script src="systemjs.config.js"></script>
+        <link rel="stylesheet" type="text/css" href="app/components/style.css">
+        <script type="text/javascript" src="js/jquery.collapse.js"></script>
+        <script type="text/javascript" src="js/locations.js"></script>
+        <script>
+            System.import('app').catch(function (err) {console.error(err);});
+        </script>
     </head>
     <body>
         <app></app>
     </body>
+
+
 </html>

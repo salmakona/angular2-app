@@ -21,7 +21,11 @@
                 <div class="location_cont_main_body">
                     <div class="location_box">
                         <div class="col-xs-4"><img src="app/components/images/add_location.png" alt=""></div>
-                        <div class="col-xs-4"><img src="app/components/images/view_location.png" alt=""></div>
+                        <div class="col-xs-4">
+                            <a [routerLink]="['/viewlocation']">
+                                <img src="app/components/images/view_location.png" alt="">
+                            </a>
+                        </div>
                         <div class="col-xs-4"><img src="app/components/images/retire_location.png" alt=""></div>
                     </div>
                     <div class="search_location_area">

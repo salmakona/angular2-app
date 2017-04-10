@@ -20,13 +20,14 @@ import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AuthenticationService} from './components/login_register/authentication.service';
 import { ItemSearchComponent }  from './components/item/search_item';
 import {FilterPipe} from "./components/item/filter_pipe";
+import {ViewLocationComponent} from "./components/location/view_location";
 
 
 
 @NgModule({
     imports:      [ BrowserModule, routing,HttpModule,FormsModule,ReactiveFormsModule],
     declarations: [ AppComponent, LocationComponent,ItemComponent,ItemSearchComponent, FilterPipe,UserComponent,RefilsComponent,TheftcontrolComponent,
-    ReportComponent,LoginComponent,Signup],
+    ReportComponent,LoginComponent,Signup,ViewLocationComponent],
     providers:[
         AuthGuard,
         {provide: LocationStrategy, useClass: HashLocationStrategy}],
