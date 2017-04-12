@@ -25,6 +25,7 @@ var auth_guard_1 = require('./components/login_register/auth.guard');
 var search_item_1 = require('./components/item/search_item');
 var filter_pipe_1 = require("./components/item/filter_pipe");
 var view_location_1 = require("./components/location/view_location");
+//import {ToasterModule, ToasterService} from 'angular2-toaster';
 var AppModule = (function () {
     function AppModule() {
     }

@@ -21,9 +21,8 @@ var ItemSearchComponent = (function () {
     function ItemSearchComponent(itemSearchService, http) {
         this.itemSearchService = itemSearchService;
         this.http = http;
-        this.barcodeFilter = new forms_1.FormControl();
-        this.descriptionFilter = new forms_1.FormControl();
-        this.getUrl = 'https://api.grabngo.market/api/items/barcode';
+        this.anykeyFilter = new forms_1.FormControl();
+        this.getUrl = 'http://api.grabngo.market/api/items/search/';
         this.jsonURL1 = "https://api.grabngo.market/api/items";
         this.baseURL = "https://api.grabngo.market";
         this.nextURL = "";
@@ -38,10 +37,12 @@ var ItemSearchComponent = (function () {
             this.taxable = taxable;
         };
     }
-    ItemSearchComponent.prototype.search = function (event, barcode) {
-        this.itemSearchService.serch_item(barcode)
-            .debounceTime(300).distinctUntilChanged();
-    };
+    /*search(event:any, value:string){
+        this.itemSearchService.serch_item(anykey)
+                .debounceTime(300).distinctUntilChanged()
+    
+        }
+    */
     ItemSearchComponent.prototype.extractData = function (res) {
         var body = res.json();
         return body || [];
@@ -113,13 +114,13 @@ var ItemSearchComponent = (function () {
         console.log("Privious " + this.jsonURL1);
     };
     ItemSearchComponent.prototype.ngOnInit = function () {
-        var _this = this;
         this.jsonURL = 'https://api.grabngo.market/api/items';
         this.load();
-        this.barcodeFilter.valueChanges;
-        this.descriptionFilter.valueChanges
-            .debounceTime(100)
-            .subscribe(function (value) { return _this.filterCriteria = value; }, function (error) { return console.error(error); });
+        // this.barcodeFilter.valueChanges
+        //  this.descriptionFilter.valueChanges
+        // .debounceTime(100)
+        // .subscribe(value => this.filterCriteria = value,
+        // error => console.error(error));
     };
     ItemSearchComponent = __decorate([
         core_1.Component({

@@ -9,7 +9,8 @@ System.config({
          'angular2-jwt': 'node_modules/angular2-jwt'
     },
     paths: {
-        'node_modules/@angular/*': 'node_modules/@angular/*/bundles'
+        'node_modules/@angular/*': 'node_modules/@angular/*/bundles',
+        'angular2-toaster': 'node_modules/angular2-toaster-mod/bundles/angular2-toaster.umd.js'
     },
     meta: {
         '@angular/*': {'format': 'cjs'}

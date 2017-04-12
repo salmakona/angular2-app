@@ -22,20 +22,20 @@ import { ItemSearchService }       from './itemSearchService';
 export class ItemSearchComponent {
 
     public items:any[];
-    public barcodeFilter: FormControl = new FormControl();
-     public descriptionFilter: FormControl = new FormControl();
+    public anykeyFilter: FormControl = new FormControl();
+     //public descriptionFilter: FormControl = new FormControl();
     public filterCriteria: string;
 
 constructor(private itemSearchService: ItemSearchService,private http: Http) {}
 
-private getUrl ='https://api.grabngo.market/api/items/barcode';
+private getUrl ='http://api.grabngo.market/api/items/search/';
 
-search(event:any, barcode:string){
-    this.itemSearchService.serch_item(barcode)
+/*search(event:any, value:string){
+    this.itemSearchService.serch_item(anykey)
             .debounceTime(300).distinctUntilChanged()
 
     }
-
+*/
    private extractData(res:Response) {
           let body = res.json();
           return body || [];
@@ -144,11 +144,11 @@ search(event:any, barcode:string){
 
             this.jsonURL = 'https://api.grabngo.market/api/items';
             this.load();
-            this.barcodeFilter.valueChanges
-             this.descriptionFilter.valueChanges
-            .debounceTime(100)
-             .subscribe(value => this.filterCriteria = value,
-            error => console.error(error));
+           // this.barcodeFilter.valueChanges
+           //  this.descriptionFilter.valueChanges
+           // .debounceTime(100)
+            // .subscribe(value => this.filterCriteria = value,
+           // error => console.error(error));
 
         }
         

@@ -42,8 +42,8 @@
             </div>
         </div>
         <div class="body_content_view_content_top_refills">
-            <table id="itemsTable" class="table table-bordered table-hover" width="647">
-                <thead>
+            <table id="itemsTable" class="table table-bordered table-hover" width="auto">
+                <thead item-width="100%">
                     <tr>
                         <th>Name</th>
                         <th>Date</th>
@@ -51,55 +51,15 @@
                         <th>Percent</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody item-width="100%">
                     <tr>
-                        <td class="first-td"><span class="minus-refill"></span>
-                        <input type="text" placeholder="Globus"> </td>
-                        <td><input type="text" placeholder=" 6/25/16"></td>
-                        <td><input type="text" placeholder="$175.25"></td>
-                        <td><input type="text" placeholder="5%"></td>
-                    </tr>
-                    <tr>
-                        <td class="first-td"><span class="minus-refill"></span>
-                        <input type="text" placeholder="Transfirst"> </td>
-                        <td><input type="text" placeholder=" 6/25/16"></td>
-                        <td><input type="text" placeholder="$175.25"></td>
-                        <td><input type="text" placeholder="5%"></td>
-                    </tr>
-                    <tr>
-                        <td class="first-td"><span class="minus-refill"></span>
-                        <input type="text" placeholder="Circo"> </td>
-                        <td><input type="text" placeholder=" 6/25/16"></td>
-                        <td><input type="text" placeholder="$175.25"></td>
-                        <td><input type="text" placeholder="5%"></td>
-                    </tr>
-                    <tr>
-                        <td class="first-td"><span class="minus-refill"></span>
-                        <input type="text" placeholder="Xanadyne"> </td>
-                        <td><input type="text" placeholder=" 6/25/16"></td>
-                        <td><input type="text" placeholder="$175.25"></td>
-                        <td><input type="text" placeholder="5%"></td>
-                    </tr>
-                    <tr>
-                        <td class="first-td"><span class="minus-refill"></span>
-                        <input type="text" placeholder="Regus"> </td>
-                        <td><input type="text" placeholder=" 6/25/16"></td>
-                        <td><input type="text" placeholder="$175.25"></td>
-                        <td><input type="text" placeholder="5%"></td>
-                    </tr>
-                    <tr>
-                        <td class="first-td"><span class="minus-refill"></span>
-                        <input type="text" placeholder="Adobe Systems"> </td>
-                        <td><input type="text" placeholder=" 6/25/16"></td>
-                        <td><input type="text" placeholder="$175.25"></td>
-                        <td><input type="text" placeholder="5%"></td>
-                    </tr>
-                    <tr>
-                        <td class="first-td"><span class="minus-refill"></span>
-                        <input type="text" placeholder="Allied Waste"> </td>
-                        <td><input type="text" placeholder=" 6/25/16"></td>
-                        <td><input type="text" placeholder="$175.25"></td>
-                        <td><input type="text" placeholder="5%"></td>
+                         <form #f="ngForm">
+                            <td class="first-td"><span class="minus-refill"></span>
+                            <input type="text" placeholder="Globus"> </td>
+                            <td><input type="text" placeholder=" 6/25/16"></td>
+                            <td><input type="text" placeholder="$175.25"></td>
+                            <td><input type="text" placeholder="5%"></td>
+                         </form>
                     </tr>
                 </tbody>
             </table>

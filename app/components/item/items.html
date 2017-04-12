@@ -19,10 +19,8 @@
             </div>
             <div class="col-xs-8">
                 <div class="body_content_view_header_secrch">
-                    <div class="form-group">
-                        <input placeholder="Filter products by Name" class="form-control" type="text" [formControl]="descriptionFilter">
-                    </div>
-                      <!--<a [routerLink]="['/item-search']">Search</a>-->
+                    <input #key (keyup)="filter($event,key.value)" name="key" id="key" class="text" placeholder="Filter products by Name, price barcode" type="text">
+                    <input class="submit" type="submit" value="">
                 </div>
             </div>
         </div>
@@ -34,7 +32,6 @@
                 <div class="col-xs-8">
                     <span>
                         View All ITEMS <img src="app/components/images/View All Users-arrow.png" alt="">
-                        <!--<a href="#">View All ITEMS <img src="images/View All Users-arrow.png" alt=""></a>-->
                     </span>
                     <span>
                         <div id="current_page"></div>
@@ -46,7 +43,6 @@
             </div>
           
             <div class="body_content_view_content_table">
-     
                 <table id="itemsTable" class="table table-bordered table-hover" width="auto">
                     <thead item-width="100%">
                     <tr>
@@ -54,12 +50,12 @@
                         <th>Barcode</th>
                         <th>Price</th>
                         <th>Taxable</th>
-                        <!--<th>Update</th>-->
                     </tr>
                     </thead>
                     <tbody item-width="100%">
-                            <tr *ngFor="let post of xx | filter:'description':filterCriteria">
-                                  <form #f="ngForm" (ngSubmit)="update_value(f.value)">
+                          <tr *ngFor="let post of xx" (keydown.Enter)="update(description.value,barcode.value,price.value,taxable.value,id.value)">
+                            <!--<tr *ngFor="let post of xx | filter:'description':filterCriteria" (keydown.Enter)="update(description.value,barcode.value,price.value,taxable.value,id.value)">-->
+                                  <!--<form #f="ngForm" (ngSubmit)="update_value(f.value)">
                                         <td class="first-td">
                                             <span class="minus-user"></span>
                                             <input [(ngModel)]="post.description" name="description">
@@ -73,14 +69,31 @@
                                         <td>
                                             <input type="text" [(ngModel)]="post.taxable" name="taxable"/>
                                         </td>
-                                       
                                         <td style="display: none">
                                             <input type="hidden" [(ngModel)]="post._id" name="_id"> 
                                             <button type="submit" class="Submit" >Update</button> 
-                                            
                                         </td>
-                                   </form>
-                            </tr>  
+                                        <td>  <toaster-container></toaster-container> </td>
+                                   </form>-->
+                                    <form>
+                                            <td class="first-td">
+                                                <span class="minus-user"></span>
+                                                <input [(ngModel)]="post.description" name="description"  id ="description" #description/>
+                                            </td>
+                                            <td>
+                                                <input type="text" [(ngModel)]="post.barcode" name="barcode" id ="barcode"  #barcode/>
+                                            </td>
+                                            <td>
+                                                <input type="text" [(ngModel)]="post.price" name="price" id ="price"  #price/>
+                                            </td>
+                                            <td>
+                                                <input type="text" [(ngModel)]="post.taxable" name="taxable" id="taxable"  #taxable/>
+                                            </td>
+                                            <td style="display: none">
+                                                <input type="hidden" [(ngModel)]="post._id" name="id" id="id" #id> 
+                                            </td>
+                                    </form>
+                            </tr> 
                     </tbody>
                 </table>
             </div>

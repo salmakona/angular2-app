@@ -214,7 +214,7 @@ header h2{
 	}
 .body_content_view_header h2{
 	font-size:48px;
-	color:#FFB0A2;
+	color:#FEE3DE;
 	float:left;
 	margin:0 0 0 15px;
 	line-height:44px;
@@ -812,6 +812,114 @@ border: inherit !important;
     width: 100%;
     position: relative;
 	}
+.body_content_view_content_table_user thead tr{
+	display: flex;
+    width: 100%;
+    position: relative;
+	}
+
+
+.body_content_view_content_table_user tbody{
+    width: 100%;
+    position: relative;
+	}
+.body_content_view_content_table_user tbody tr{
+	float:left;
+    width: 100%;
+    position: relative;
+	}
+.body_content_view_content_table_user tbody tr td{
+	float:left;
+    width: 100%;
+    position: relative;
+	padding: 8px;
+	}
+.body_content_view_content_table_user tbody tr .ng-pristine{
+	display: flex;
+    width: 100%;
+    position: relative;
+	}
+
+/*refils*/
+.body_content_view_content_top_refills{
+    width: 100%;
+    float: left;
+    padding: 0 20px;
+    position: relative;
+	}
+.body_content_view_content_top_refills thead{
+	background:url(images/titlebar-bg-user.png) left center no-repeat;
+    width: 100%;
+    position: relative;
+	}
+.body_content_view_content_top_refills thead tr{
+	display: flex;
+    width: 100%;
+    position: relative;
+	}
+
+.body_content_view_content_top_refills tbody{
+    width: 100%;
+    position: relative;
+	}
+.body_content_view_content_top_refills tbody tr{
+	float:left;
+    width: 100%;
+    position: relative;
+	}
+.body_content_view_content_top_refills tbody tr td{
+	float:left;
+    width: 100%;
+    position: relative;
+	padding: 8px;
+	}
+.body_content_view_content_top_refills tbody tr .ng-pristine{
+	display: flex;
+    width: 100%;
+    position: relative;
+	}
+/*refils end*/
+
+/*ControlTheft*/
+.body_content_view_content_top_theft_control{
+    width: 100%;
+    float: left;
+    padding: 0 20px;
+    position: relative;
+	}
+.body_content_view_content_top_theft_control thead{
+	background:url(images/titlebar-bg-user.png) left center no-repeat;
+    width: 100%;
+    position: relative;
+	}
+.body_content_view_content_top_theft_control thead tr{
+	display: flex;
+    width: 100%;
+    position: relative;
+	}
+
+.body_content_view_content_top_theft_control tbody{
+    width: 100%;
+    position: relative;
+	}
+.body_content_view_content_top_theft_control tbody tr{
+	float:left;
+    width: 100%;
+    position: relative;
+	}
+.body_content_view_content_top_theft_control tbody tr td{
+	float:left;
+    width: 100%;
+    position: relative;
+	padding: 8px;
+	}
+.body_content_view_content_top_theft_control tbody tr .ng-pristine{
+	display: flex;
+    width: 100%;
+    position: relative;
+	}
+/*ControlTheft*/
+
 .body_content_view_content_table_user thead .cellEditing{
 	float:left;
 	width:auto !important;
@@ -1092,7 +1200,7 @@ border: inherit !important;
 	}
 .body_content_view_header_theft_control h2{
 	font-size:40px;
-	color:#B1B3FF;
+	color:#D8D9FF;
 	float:left;
 	margin:0 0 0 15px;
 	line-height:44px;
@@ -1194,10 +1302,30 @@ border: inherit !important;
     width: 100%;
     position: relative;
 	}
-.body_content_view_content_top_theft_control_table thead .cellEditing{
+.body_content_view_content_top_theft_control_table thead tr{
+	display: flex;
+	}
+.body_content_view_content_top_theft_control_table tbody{
+    width: 100%;
+    position: relative;
+	}
+.body_content_view_content_top_theft_control_table tbody tr{
+	width: 100%;
+	float: left;
+	}
+.body_content_view_content_top_theft_control_table tbody tr .ng-pristine{
+	display: flex;
+	}
+.body_content_view_content_top_theft_control_table tbody tr td{
+float: left;
+    width: 100%;
+    position: relative;
+    padding: 8px;
+	}
+/*.body_content_view_content_top_theft_control_table thead .cellEditing{
 	float:left;
 	width:auto !important;
-	}
+	}*/
 .body_content_view_content_top_theft_control_table .table-bordered{
 	border:inherit;
 	}
@@ -1283,12 +1411,29 @@ border: inherit !important;
 	}
 .body_content_view_main_view{
 	width:100%;
-	min-height:706px;
+	height:706px;
 	float:left;
 	position:relative;
 	padding:40px;
 	}
-
+.location_cont_scroll{
+	width:100%;
+	height:640px;
+	float:left;
+	position:relative;
+	overflow-y: scroll;
+	}
+.location_cont_scroll::-webkit-scrollbar {
+	background:transparent;
+	width:4px;
+	}
+.location_cont_scroll::-webkit-scrollbar-track {
+	background:transparent;
+	}
+.location_cont_scroll::-webkit-scrollbar-thumb {
+	background:rgba(0,0,0,0.5);
+	border-radius: 4px;
+	}
 
 /*big FAQ*/
 .css3-animated-example{
@@ -1309,7 +1454,7 @@ border: inherit !important;
 
 .css3-animated-example .open{
     width: 100%;
-    height: 300px;
+    height: 560px;
     float: left;
     position: relative;
     overflow-y: scroll;
@@ -1352,9 +1497,6 @@ border: inherit !important;
 	float:left;
 	position:relative;
 }
-
-
-
 
 .css3-animated-example .content h2{
 	font-size:24px;

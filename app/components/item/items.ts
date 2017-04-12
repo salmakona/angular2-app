@@ -7,19 +7,24 @@ import 'rxjs/add/operator/map';
 import { ItemService }       from './items_service';
 import {Http, Response, Headers, RequestOptions}from '@angular/http';
 import { Location }               from '@angular/common';
+//import {ToasterModule, ToasterService} from 'angular2-toaster';
 
 @Component({
 
     selector: 'items',
     templateUrl:'app/components/item/items.html',
+     //providers: [ToasterService]
 })
 export class ItemComponent implements OnInit{
 
     public items:any[];
-    public descriptionFilter: FormControl = new FormControl();
-    public filterCriteria: string;
-
-    constructor (private http: Http, private location: Location) {}
+    //public descriptionFilter: FormControl = new FormControl();
+    //public filterCriteria: string;
+    //private toasterService: ToasterService;
+    constructor (private http: Http, private location: Location) {
+        // this.toasterService = toasterService;
+         
+    }
             
     jsonURL1 = "https://api.grabngo.market/api/items";
     baseURL = "https://api.grabngo.market";
@@ -107,11 +112,13 @@ export class ItemComponent implements OnInit{
 
         this.jsonURL = 'https://api.grabngo.market/api/items';
         this.load();
-        this.descriptionFilter.valueChanges
+       // this.filter().valueChanges.debounceTime(100).subscribe(value => this.filterCriteria = value,error => console.error(error));
+
+        /*this.search().valueChanges
         .debounceTime(100)
             .subscribe(value => this.filterCriteria = value,
         error => console.error(error));
-
+        */
     }
 
         
@@ -121,14 +128,14 @@ export class ItemComponent implements OnInit{
     private getUrl ='https://api.grabngo.market/api/items/id';
     private headers = new Headers({'Content-Type': 'application/json'});
 
-    update(formValue: any): Observable<any>{
-        console.log("submitted update  from");
-        console.log("Update Button Clicked"); 
-            var x = formValue.description;
-            var y = formValue.barcode;
-            var a = formValue.price;
-            var b = formValue.taxable;
-            var id= formValue._id;
+/*update(value: any): Observable<any>{
+        console.log("submitted ");
+        console.log("Presses"); 
+            var x = value.description;
+            var y = value.barcode;
+            var a = value.price;
+            var b = value.taxable;
+            var id= value._id;
             this.dy = y;
             var data = {
                 "description":x,
@@ -142,15 +149,18 @@ export class ItemComponent implements OnInit{
             const url = `${this.getUrl}/${id}`;
             console.log(url);
             return this.http.put(url, JSON.stringify(data), {headers: this.headers}).map((res: Response) => res.json()).catch(this.handleError);
-
+         
     }
 
-update_value(formValue: any) {
-    this.update(formValue).subscribe(
+update_value(description:any,barcode:any,price:any,taxable:any,_id:any) {
+
+   this.update(value).subscribe(
        data => {
          // refresh the list
         this.load();
+        this.toasterService.pop('success', 'Updated');
          return true;
+        
        },
        error => {
          console.error("Error update!");
@@ -158,15 +168,54 @@ update_value(formValue: any) {
        }
     );
   }
+*/
   
-        
+    update(description:any,barcode:any,price:any,taxable:any,_id:any){
+            var description = description;
+            var barcode= barcode;
+            var price = price;
+            var taxable = taxable;
+            var id = _id;
+            var data = {
+                "description":description,
+                "barcode":barcode,
+                "price":price,
+                "taxable":taxable,
+                "id":id,
+            }
+            console.log("Updated");
+            //console.log(data);
+            const url = `${this.getUrl}/${id}`;
+            console.log(url);
+            return this.http.put(url, JSON.stringify(data), {headers: this.headers}).toPromise().then(
+                () => {
+                    this.load();
+                    //this.toasterService.pop('success', 'Updated');
+                }
+            )
+             .catch(this.handleError);;
+
+    }
+
     private handleError(error:any) {
         let errMsg = (error.message) ? error.message :
         error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         console.error(errMsg); // log to console instead
         return Observable.throw(errMsg);
+    }   
+
+    private serachUrl ='http://api.grabngo.market/api/items/search';
+
+    filter(event:any,value:any){
+        var key = value;
+        console.log(key);
+        const url = `${this.serachUrl}/${key}`;;
+        //console.log("test");
+        this.jsonURL= url;
+        console.log(this.jsonURL)
+       this.load();
     }
-    
-    
+   
+
 }
 

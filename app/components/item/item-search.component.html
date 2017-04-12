@@ -23,7 +23,7 @@
             <div class="col-xs-8">
                 <div class="body_content_view_header_secrch">
                             <div class="form-group">
-                                <input placeholder="Filter products by barcode,description" class="form-control" type="text" [formControl]="descriptionFilter">
+                                <input placeholder="Filter products by any key" class="form-control" type="text" [formControl]="anykey">
                             </div>
                    <!-- <form role="form" (keyup)="search($event, barcode.value)" >
                     <input type="text" #barcode class="form-control" id="barcode" placeholder="barcode" name="barcode">
@@ -48,8 +48,7 @@
                 </div>
             </div>
           
-            <div class="body_content_view_content_table">
-     
+        <div class="body_content_view_content_table">
                 <table id="itemsTable" class="table table-bordered table-hover" width="auto">
                     <thead item-width="100%">
                     <tr>
@@ -60,21 +59,19 @@
                     </tr>
                     </thead>
                     <tbody item-width="100%">
-                            <tr *ngFor="let post of xx | filter:'description':filterCriteria">
-                                 
-                                        <td class="first-td">
-                                            <input [(ngModel)]="post.description" name="description">
-                                        </td>
-                                        <td class="first-td">
-                                            <input type="text" [(ngModel)]="post.barcode" name="barcode"/>
-                                        </td>
-                                        <td class="first-td">
-                                            <input type="text" [(ngModel)]="post.price" name="price"/>
-                                        </td>
-                                        <td class="first-td">
-                                            <input type="text" [(ngModel)]="post.taxable" name="taxable"/>
-                                        </td>
-                                   
+                            <tr *ngFor="let post of xx | filter:'anykey':filterCriteria">
+                                <td class="first-td">
+                                    <input [(ngModel)]="post.description" name="description">
+                                </td>
+                                <td class="first-td">
+                                    <input type="text" [(ngModel)]="post.barcode" name="barcode"/>
+                                </td>
+                                <td class="first-td">
+                                    <input type="text" [(ngModel)]="post.price" name="price"/>
+                                </td>
+                                <td class="first-td">
+                                    <input type="text" [(ngModel)]="post.taxable" name="taxable"/>
+                                </td>
                             </tr>  
                     </tbody>
                 </table>

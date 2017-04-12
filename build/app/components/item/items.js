@@ -6,16 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var forms_1 = require('@angular/forms');
 var Observable_1 = require('rxjs/Observable');
 require('rxjs/add/operator/catch');
 require('rxjs/add/operator/map');
 var http_1 = require('@angular/http');
+//import {ToasterModule, ToasterService} from 'angular2-toaster';
 var ItemComponent = (function () {
+    //public descriptionFilter: FormControl = new FormControl();
+    //public filterCriteria: string;
+    //private toasterService: ToasterService;
     function ItemComponent(http, location) {
+        // this.toasterService = toasterService;
         this.http = http;
         this.location = location;
-        this.descriptionFilter = new forms_1.FormControl();
         this.jsonURL1 = "https://api.grabngo.market/api/items";
         this.baseURL = "https://api.grabngo.market";
         this.nextURL = "";
@@ -32,6 +35,7 @@ var ItemComponent = (function () {
         this.submitted = false;
         this.getUrl = 'https://api.grabngo.market/api/items/id';
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        this.serachUrl = 'http://api.grabngo.market/api/items/search';
     }
     ItemComponent.prototype.loadJSON = function (file, callback) {
         var xobj = new XMLHttpRequest();
@@ -88,51 +92,96 @@ var ItemComponent = (function () {
         console.log("Privious " + this.jsonURL1);
     };
     ItemComponent.prototype.ngOnInit = function () {
-        var _this = this;
         this.jsonURL = 'https://api.grabngo.market/api/items';
         this.load();
-        this.descriptionFilter.valueChanges
-            .debounceTime(100)
-            .subscribe(function (value) { return _this.filterCriteria = value; }, function (error) { return console.error(error); });
+        // this.filter().valueChanges.debounceTime(100).subscribe(value => this.filterCriteria = value,error => console.error(error));
+        /*this.search().valueChanges
+        .debounceTime(100)
+            .subscribe(value => this.filterCriteria = value,
+        error => console.error(error));
+        */
     };
-    ItemComponent.prototype.update = function (formValue) {
-        console.log("submitted update  from");
-        console.log("Update Button Clicked");
-        var x = formValue.description;
-        var y = formValue.barcode;
-        var a = formValue.price;
-        var b = formValue.taxable;
-        var id = formValue._id;
-        this.dy = y;
+    /*update(value: any): Observable<any>{
+            console.log("submitted ");
+            console.log("Presses");
+                var x = value.description;
+                var y = value.barcode;
+                var a = value.price;
+                var b = value.taxable;
+                var id= value._id;
+                this.dy = y;
+                var data = {
+                    "description":x,
+                    "barcode":y,
+                    "price":a,
+                    "taxable":b,
+                    "id":id,
+                }
+                console.log("Onclick");
+                console.log(data);
+                const url = `${this.getUrl}/${id}`;
+                console.log(url);
+                return this.http.put(url, JSON.stringify(data), {headers: this.headers}).map((res: Response) => res.json()).catch(this.handleError);
+             
+        }
+    
+    update_value(description:any,barcode:any,price:any,taxable:any,_id:any) {
+    
+       this.update(value).subscribe(
+           data => {
+             // refresh the list
+            this.load();
+            this.toasterService.pop('success', 'Updated');
+             return true;
+            
+           },
+           error => {
+             console.error("Error update!");
+             return Observable.throw(error);
+           }
+        );
+      }
+    */
+    ItemComponent.prototype.update = function (description, barcode, price, taxable, _id) {
+        var _this = this;
+        var description = description;
+        var barcode = barcode;
+        var price = price;
+        var taxable = taxable;
+        var id = _id;
         var data = {
-            "description": x,
-            "barcode": y,
-            "price": a,
-            "taxable": b,
+            "description": description,
+            "barcode": barcode,
+            "price": price,
+            "taxable": taxable,
             "id": id,
         };
-        console.log("Onclick");
-        console.log(data);
+        console.log("Updated");
+        //console.log(data);
         var url = this.getUrl + "/" + id;
         console.log(url);
-        return this.http.put(url, JSON.stringify(data), { headers: this.headers }).map(function (res) { return res.json(); }).catch(this.handleError);
-    };
-    ItemComponent.prototype.update_value = function (formValue) {
-        var _this = this;
-        this.update(formValue).subscribe(function (data) {
-            // refresh the list
+        return this.http.put(url, JSON.stringify(data), { headers: this.headers }).toPromise().then(function () {
             _this.load();
-            return true;
-        }, function (error) {
-            console.error("Error update!");
-            return Observable_1.Observable.throw(error);
-        });
+            //this.toasterService.pop('success', 'Updated');
+        })
+            .catch(this.handleError);
+        ;
     };
     ItemComponent.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :
             error.status ? error.status + " - " + error.statusText : 'Server error';
         console.error(errMsg); // log to console instead
         return Observable_1.Observable.throw(errMsg);
+    };
+    ItemComponent.prototype.filter = function (event, value) {
+        var key = value;
+        console.log(key);
+        var url = this.serachUrl + "/" + key;
+        ;
+        //console.log("test");
+        this.jsonURL = url;
+        console.log(this.jsonURL);
+        this.load();
     };
     ItemComponent = __decorate([
         core_1.Component({

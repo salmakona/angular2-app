@@ -44,8 +44,8 @@
             </div>
         </div>
         <div class="body_content_view_content_top_theft_control_table">
-            <table id="itemsTable" class="table table-bordered table-hover" width="647">
-                <thead>
+            <table id="itemsTable" class="table table-bordered table-hover" width="auto">
+                <thead item-width="100%">
                     <tr>
                         <th>Name</th>
                         <th>Date</th>
@@ -55,70 +55,19 @@
                         <th>Percent</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody item-width="100%">
                     <tr>
-                        <td class="first-td"><span class="minus-theft_control"></span>
-                        <input type="text" placeholder="Globus"> </td>
-                        <td><input type="text" placeholder="6/25/16 - 6/27/16"></td>
-                        <td><input type="text" placeholder="156 items inventoried"></td>
-                        <td><input type="text" placeholder="154 items sold"></td>
-                        <td><input type="text" placeholder="2 item variance "></td>
-                        <td><input type="text" placeholder="0.2%"></td>
+                         <form #f="ngForm">
+                            <td class="first-td"><span class="minus-theft_control"></span>
+                            <input type="text" placeholder="Globus"> </td>
+                            <td><input type="text" placeholder="6/25/16 - 6/27/16"></td>
+                            <td><input type="text" placeholder="156 items inventoried"></td>
+                            <td><input type="text" placeholder="154 items sold"></td>
+                            <td><input type="text" placeholder="2 item variance "></td>
+                            <td><input type="text" placeholder="0.2%"></td>
+                         </form>
                     </tr>
-                    <tr>
-                        <td class="first-td"><span class="minus-theft_control"></span>
-                        <input type="text" placeholder="Transfirst"> </td>
-                        <td><input type="text" placeholder="6/25/16 - 6/27/16"></td>
-                        <td><input type="text" placeholder="156 items inventoried"></td>
-                        <td><input type="text" placeholder="154 items sold"></td>
-                        <td><input type="text" placeholder="2 item variance "></td>
-                        <td><input type="text" placeholder="0.2%"></td>
-                    </tr>
-                    <tr>
-                        <td class="first-td"><span class="minus-theft_control"></span>
-                        <input type="text" placeholder="Circo"> </td>
-                        <td><input type="text" placeholder="6/25/16 - 6/27/16"></td>
-                        <td><input type="text" placeholder="156 items inventoried"></td>
-                        <td><input type="text" placeholder="154 items sold"></td>
-                        <td><input type="text" placeholder="2 item variance "></td>
-                        <td><input type="text" placeholder="0.2%"></td>
-                    </tr>
-                    <tr>
-                        <td class="first-td"><span class="minus-theft_control"></span>
-                        <input type="text" placeholder="Xanadyne"> </td>
-                        <td><input type="text" placeholder="6/25/16 - 6/27/16"></td>
-                        <td><input type="text" placeholder="156 items inventoried"></td>
-                        <td><input type="text" placeholder="154 items sold"></td>
-                        <td><input type="text" placeholder="2 item variance "></td>
-                        <td><input type="text" placeholder="0.2%"></td>
-                    </tr>
-                    <tr>
-                        <td class="first-td"><span class="minus-theft_control"></span>
-                        <input type="text" placeholder="Regus"> </td>
-                        <td><input type="text" placeholder="6/25/16 - 6/27/16"></td>
-                        <td><input type="text" placeholder="156 items inventoried"></td>
-                        <td><input type="text" placeholder="154 items sold"></td>
-                        <td><input type="text" placeholder="2 item variance "></td>
-                        <td><input type="text" placeholder="0.2%"></td>
-                    </tr>
-                    <tr>
-                        <td class="first-td"><span class="minus-theft_control"></span>
-                        <input type="text" placeholder="Adobe Systems"> </td>
-                        <td><input type="text" placeholder="6/25/16 - 6/27/16"></td>
-                        <td><input type="text" placeholder="156 items inventoried"></td>
-                        <td><input type="text" placeholder="154 items sold"></td>
-                        <td><input type="text" placeholder="2 item variance "></td>
-                        <td><input type="text" placeholder="0.2%"></td>
-                    </tr>
-                    <tr>
-                        <td class="first-td"><span class="minus-theft_control"></span>
-                        <input type="text" placeholder="Allied Waste"> </td>
-                        <td><input type="text" placeholder="6/25/16 - 6/27/16"></td>
-                        <td><input type="text" placeholder="156 items inventoried"></td>
-                        <td><input type="text" placeholder="154 items sold"></td>
-                        <td><input type="text" placeholder="2 item variance "></td>
-                        <td><input type="text" placeholder="0.2%"></td>
-                    </tr>
+ 
                 </tbody>
             </table>
         </div>

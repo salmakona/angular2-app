@@ -21,7 +21,7 @@ import { AuthenticationService} from './components/login_register/authentication
 import { ItemSearchComponent }  from './components/item/search_item';
 import {FilterPipe} from "./components/item/filter_pipe";
 import {ViewLocationComponent} from "./components/location/view_location";
-
+//import {ToasterModule, ToasterService} from 'angular2-toaster';
 
 
 @NgModule({
