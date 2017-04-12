@@ -204,7 +204,7 @@ update_value(description:any,barcode:any,price:any,taxable:any,_id:any) {
         return Observable.throw(errMsg);
     }   
 
-    private serachUrl ='http://api.grabngo.market/api/items/search';
+    private serachUrl ='https://api.grabngo.market/api/items/search';
 
     filter(event:any,value:any){
         var key = value;
