@@ -20,6 +20,7 @@ export class ViewLocationComponent implements OnInit{
     prevURL = "";
     searchTerm = "";
     searchURL = this.baseURL + "/api/" + this.baseTerm + "/search/" + this.searchTerm;
+    overflow = true
 
 
 
@@ -89,6 +90,11 @@ private collapse(data:any) {
        
 
         data.isExpanded = !data.isExpanded;
+        if(data.isExpanded){
+            this.overflow = false;
+        }else{
+            this.overflow = true;
+        }
 
       
     } 

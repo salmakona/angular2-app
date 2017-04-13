@@ -13,7 +13,7 @@ export class AppComponent {
 
         loggedIn = false;
         constructor(private _router: Router,private authenticationService: AuthenticationService,){
-                this._router.navigate(["/location"]);
+                this._router.navigate(["/viewlocation"]);
                 this.loggedIn = this.authenticationService.isLoggedIn();
             }
         

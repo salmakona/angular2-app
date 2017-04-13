@@ -1,4 +1,4 @@
-<div class="col-xs-4">
+
     <div class="body_header">
         <div class="container">
                 <div class="contact" style="float: right;height: auto;margin-top: -5%;margin-right: 37%;">
@@ -9,7 +9,7 @@
             </div>
         </div>
     </div>
-    </div>
+
     <div class="body_content_view_main user_cont">
         <div class="body_content_view_header_user">
             <div class="col-xs-4">
@@ -54,21 +54,21 @@
                     </thead>
                     <tbody item-width="100%">
                         <tr *ngFor="let post of xx">
-                            <form #f="ngForm">
+                            <form>
                                     <td class="first-td">
-                                        <span class="minus-user"></span><input [(ngModel)]="post.phone_num" name="description">
+                                        <span class="minus-user"></span><input [(ngModel)]="post.phone_num" name="phone_num">
                                     </td>
                                     <td>
-                                        <input [(ngModel)]="post.customer_id" name="description">
+                                        <input [(ngModel)]="post.customer_id" name="customer_id">
                                     </td>
                                     <td>
-                                        <input [(ngModel)]="post.balance" name="description">
+                                        <input [(ngModel)]="post.balance" name="balance">
                                     </td>
                                     <td>
-                                        <input [(ngModel)]="post._id" name="description">
+                                        <input [(ngModel)]="post._id" name="id">
                                     </td>
                                     <td>
-                                        <input [(ngModel)]="post.signup_date" name="description">
+                                        <input [(ngModel)]="post.signup_date" name="signup_date">
                                     </td>
                             </form>
                         </tr>

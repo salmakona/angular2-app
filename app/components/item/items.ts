@@ -8,6 +8,8 @@ import { ItemService }       from './items_service';
 import {Http, Response, Headers, RequestOptions}from '@angular/http';
 import { Location }               from '@angular/common';
 //import {ToasterModule, ToasterService} from 'angular2-toaster';
+import "rxjs/add/operator/distinctUntilChanged";
+import "rxjs/add/operator/debounceTime";
 
 @Component({
 
@@ -18,8 +20,8 @@ import { Location }               from '@angular/common';
 export class ItemComponent implements OnInit{
 
     public items:any[];
-    //public descriptionFilter: FormControl = new FormControl();
-    //public filterCriteria: string;
+        key        = 'key';
+        keyControl = new FormControl(); 
     //private toasterService: ToasterService;
     constructor (private http: Http, private location: Location) {
         // this.toasterService = toasterService;
@@ -109,16 +111,8 @@ export class ItemComponent implements OnInit{
     }
 
     ngOnInit(){
-
         this.jsonURL = 'https://api.grabngo.market/api/items';
         this.load();
-       // this.filter().valueChanges.debounceTime(100).subscribe(value => this.filterCriteria = value,error => console.error(error));
-
-        /*this.search().valueChanges
-        .debounceTime(100)
-            .subscribe(value => this.filterCriteria = value,
-        error => console.error(error));
-        */
     }
 
         
@@ -208,14 +202,21 @@ update_value(description:any,barcode:any,price:any,taxable:any,_id:any) {
 
     filter(event:any,value:any){
         var key = value;
-        console.log(key);
-        const url = `${this.serachUrl}/${key}`;;
-        //console.log("test");
-        this.jsonURL= url;
-        console.log(this.jsonURL)
-       this.load();
-    }
-   
 
+      if(!key){
+          this.jsonURL= "https://api.grabngo.market/api/items";
+         this.load();
+        console.log("This is test");
+      }else{
+            console.log(key);
+            const url = `${this.serachUrl}/${key}`;;
+            this.jsonURL= url;
+            console.log(this.jsonURL);
+            this.load();
+
+      }
+  
+    }
+    
 }
 

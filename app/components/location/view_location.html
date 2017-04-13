@@ -1,8 +1,31 @@
 <div class="mainwrapper">
-    <div class="body_content">
-        <div class="container">
+            <div class="body_header">
+                <div class="container">
+                    <div class="contact" style="float: right;height: auto;margin-top: -5%;margin-right: 37%;">
+                        <ul>
+                            <li class="logout-bg" ><a [routerLink]="['/login']" class="logout-bg"></a></li>
+                            <li class="admin-bg"></li>
+                        </ul>
+                    </div>
+                </div>
+    </div>
+   <div class="location-bg">
             <div class="body_content_view_main_view location_cont">
-                <div class="location_cont_scroll">
+                 <div class="view_location_title">
+                    <div class="view_location_title_main">
+                        <img src="app/components/images/location-title.png" alt="">
+                    </div>
+                    <div class="view_location_search">
+                        <h2><img src="app/components/images/location-src.png" alt="">Search for Location by Name</h2>
+                        <div class="search_location_area_main_secrch">
+                            <input class="text_l" type="text" placeholder="Search">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--<div class="location_cont_scroll" [ngClass]="{'overflow-y-true': overflow, 'overflow-y-false': !overflow }"> -->
+                     <div  [ngClass]="{'overflow-y-true': overflow, 'overflow-y-false': !overflow }"> 
                     <div class="css3-animated-example" *ngFor="let location of locationx">
                         <h3 (click)="collapse(location)">
                             <a ng-href="#"> 
@@ -82,5 +105,6 @@
                 </div>
             </div>
          </div>
-     </div>     
+         
+      
 </div>
