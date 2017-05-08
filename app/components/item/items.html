@@ -53,7 +53,7 @@
                     </tr>
                     </thead>
                     <tbody item-width="100%">
-                          <tr *ngFor="let post of xx" (keydown.Enter)="update(description.value,barcode.value,price.value,taxable.value,id.value)">
+                          <tr *ngFor="let post of xx">
                             <!--<tr *ngFor="let post of xx | filter:'description':filterCriteria" (keydown.Enter)="update(description.value,barcode.value,price.value,taxable.value,id.value)">-->
                                   <!--<form #f="ngForm" (ngSubmit)="update_value(f.value)">
                                         <td class="first-td">
@@ -78,16 +78,16 @@
                                     <form>
                                             <td class="first-td">
                                                 <span class="minus-user"></span>
-                                                <input [(ngModel)]="post.description" name="description"  id ="description" #description/>
+                                                <input [(ngModel)]="post.description" name="description"  id ="description" #description (change)="update(post)"/>
                                             </td>
                                             <td>
-                                                <input type="text" [(ngModel)]="post.barcode" name="barcode" id ="barcode"  #barcode/>
+                                                <input type="text" [(ngModel)]="post.barcode" name="barcode" id ="barcode" (change)="update(post)" #barcode/>
                                             </td>
                                             <td>
-                                                <input type="text" [(ngModel)]="post.price" name="price" id ="price"  #price/>
+                                                <input type="text" [(ngModel)]="post.price" name="price" id ="price" (change)="update(post)" #price/>
                                             </td>
                                             <td>
-                                                <input type="text" [(ngModel)]="post.taxable" name="taxable" id="taxable"  #taxable/>
+                                                <input type="text" [(ngModel)]="post.taxable" name="taxable" id="taxable" (click)="toggletaxable(post)" (change)="update(post)" #taxable/>
                                             </td>
                                             <td style="display: none">
                                                 <input type="hidden" [(ngModel)]="post._id" name="id" id="id" #id> 

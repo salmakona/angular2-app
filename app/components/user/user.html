@@ -18,7 +18,7 @@
             </div>
             <div class="col-xs-8">
                 <div class="body_content_view_header_user_search">
-                    <input id="searchBox" class="text_u" type="text"  placeholder="Search for Item by Name, Category or Price">
+                    <input #key (keyup)="filter($event,key.value)" name="key" id="key" class="text_u" type="text"  placeholder="Search for Item by Name, Category or Price">
                     <input class="submit_u" type="submit" value="">
                 </div>
             </div>
@@ -45,35 +45,42 @@
                 <table id="itemsTable" class="table table-bordered table-hover" width="auto">
                     <thead item-width="100%">
                         <tr>
-                            <th>Phone</th>
                             <th>Customer Id</th>
+                            <th>Phone</th>
                             <th>Balance</th>
-                            <th>Id</th>
-                            <th>Date</th>
+                            <th>Pin number</th>
+                            <th> SignUp Date</th>
                         </tr>
                     </thead>
                     <tbody item-width="100%">
-                        <tr *ngFor="let post of xx">
-                            <form>
-                                    <td class="first-td">
-                                        <span class="minus-user"></span><input [(ngModel)]="post.phone_num" name="phone_num">
-                                    </td>
-                                    <td>
-                                        <input [(ngModel)]="post.customer_id" name="customer_id">
-                                    </td>
-                                    <td>
-                                        <input [(ngModel)]="post.balance" name="balance">
-                                    </td>
-                                    <td>
-                                        <input [(ngModel)]="post._id" name="id">
-                                    </td>
-                                    <td>
-                                        <input [(ngModel)]="post.signup_date" name="signup_date">
-                                    </td>
-                            </form>
+                        <tr *ngFor="let post of xx" (keydown.Enter)="update(phonenum.value,balance.value,passcode.value,userid.value)">
+                                   
+                                        <td class="first-td">
+                                            <span class="minus-user"></span>
+                                            <input [(ngModel)]="post.customer_id" name="customer_id" id="customer_id" #customerid>
+                                            
+                                        </td>
+                                        <td>
+                                            <input [(ngModel)]="post.phone_num" name="phonenum" id="phonenum" #phonenum>
+                                        </td>
+                                        <td>
+                                            <input [(ngModel)]="post.balance" name="balance" id="balance" #balance>
+                                        </td>
+                                        <td>
+                                            <input [(ngModel)]="post.passcode" name="passcode" id="passcode" #passcode>
+                                        </td>
+                                        <td>
+                                            <input [(ngModel)]="post.signup_date" name="signup_date" id="signup_date" #signupdate>
+                                            
+                                        </td>
+                                        <td style="display: none">
+                                                    <input [(ngModel)]="post._id" name="userid" id="userid" #userid> 
+                                        </td>
+                                   
                         </tr>
                     </tbody>
                 </table>
+                
             </div>
         </div>
 </div>

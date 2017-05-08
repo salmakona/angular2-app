@@ -21,12 +21,12 @@
                             <input class="text_l" type="text" placeholder="Search">
                         </div>
                     </div>
-
                 </div>
 
                 <!--<div class="location_cont_scroll" [ngClass]="{'overflow-y-true': overflow, 'overflow-y-false': !overflow }"> -->
-                     <div  [ngClass]="{'overflow-y-true': overflow, 'overflow-y-false': !overflow }"> 
-                    <div class="css3-animated-example" *ngFor="let location of locationx">
+                <div  [ngClass]="{'overflow-y-true': overflow, 'overflow-y-false': !overflow }"> 
+
+                    <div class="css3-animated-example" *ngFor="let location of locationx" [ngClass]="{'open_location': location.isExpanded, 'close_location': !location.isExpanded,'hide_location':location.hide}">
                         <h3 (click)="collapse(location)">
                             <a ng-href="#"> 
                                 <div  *ngIf="location.isExpanded"> {{location.name}} <span class="minus"></span></div>
@@ -63,7 +63,7 @@
                                                             <td>{{items.description}}</td>
                                                             <td>{{items._id}}</td>
                                                         </tr>
-
+                                                        
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -104,7 +104,18 @@
                     </div>
                 </div>
             </div>
+                       <!--Pagination-->
+                <div class="location_pageinnation">
+                    <span>
+                        <div id="current_page"></div>
+                        <img src="app/components/images/next.png"  (click)="next()" alt="" id="next_page">
+                        <img src="app/components/images/previous.png" (click)="previous()" alt="" id="previous_page">
+                    </span>
+                   <span id="total_items_text"></span>
+                </div>
+                 <!--Pagination-->
          </div>
+                     
          
       
 </div>

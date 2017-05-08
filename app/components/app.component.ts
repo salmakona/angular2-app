@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { Router, Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from './login_register/login';
 import { AuthenticationService } from './login_register/authentication.service';
+
 @Component({
     selector: 'app',
     templateUrl:'app/components/main.html',
@@ -19,7 +20,7 @@ export class AppComponent {
         
         showlogin() {
                 if( this.loggedIn== true){
-                    console.log("Login salma");
+                    console.log("Login");
                     return true;   
                 }else{
                     return false;

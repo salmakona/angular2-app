@@ -13,6 +13,7 @@ import { AuthGuard } from './login_register/auth.guard';
 import { AuthHttp } from 'angular2-jwt';
 import { ItemSearchComponent }  from './item/search_item';
 import {ViewLocationComponent} from "./location/view_location";
+import {RefilsComponentslip} from "./refils/slip";
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
     {path: 'report', component: ReportComponent,canActivate: [AuthGuard]},
     {path: 'items', component: ItemComponent,canActivate: [AuthGuard]},
     {path: 'item-search', component: ItemSearchComponent,canActivate: [AuthGuard]},
-     {path: 'viewlocation', component: ViewLocationComponent,canActivate: [AuthGuard]}
+    {path: 'viewlocation', component: ViewLocationComponent,canActivate: [AuthGuard]},
+    {path: 'refils-slip', component: RefilsComponentslip,canActivate: [AuthGuard]}
     
 ];
 

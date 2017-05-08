@@ -8,6 +8,7 @@ import { AppComponent }  from './components/app.component';
 import {LocationComponent} from "./components/location/location";
 import {UserComponent} from "./components/user/users";
 import {RefilsComponent} from "./components/refils/refils";
+import {RefilsComponentslip} from "./components/refils/slip";
 import {TheftcontrolComponent} from "./components/thef/theftcontrol";
 import {ReportComponent} from "./components/report/report";
 import {ItemComponent} from "./components/item/items";
@@ -24,13 +25,16 @@ import {ViewLocationComponent} from "./components/location/view_location";
 //import {ToasterModule, ToasterService} from 'angular2-toaster';
 
 
+
 @NgModule({
     imports:      [ BrowserModule, routing,HttpModule,FormsModule,ReactiveFormsModule],
-    declarations: [ AppComponent, LocationComponent,ItemComponent,ItemSearchComponent, FilterPipe,UserComponent,RefilsComponent,TheftcontrolComponent,
-    ReportComponent,LoginComponent,Signup,ViewLocationComponent],
+    declarations: [ AppComponent, LocationComponent,ItemComponent,ItemSearchComponent, 
+    FilterPipe,UserComponent,RefilsComponent,TheftcontrolComponent,
+    ReportComponent,LoginComponent,Signup,ViewLocationComponent,RefilsComponentslip],
     providers:[
         AuthGuard,
         {provide: LocationStrategy, useClass: HashLocationStrategy}],
+    exports:[],
     bootstrap:    [ AppComponent ]
 })
 class AppModule { }

@@ -383,6 +383,16 @@ border: inherit !important;
 	display: flex;
 	}
 
+/*.body_content_view_content_table_user .ng-untouched{
+	width:100%;
+	float: left;
+	display: flex;
+}*/
+.body_content_view_content_table_user{
+	width:100%;
+	float: left;
+	display: flex;
+}
 
 .body_content_view_content_table .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td{
 	border:inherit !important;
@@ -834,13 +844,32 @@ border: inherit !important;
     position: relative;
 	padding: 8px;
 	}
-.body_content_view_content_table_user tbody tr .ng-pristine{
+/*.body_content_view_content_table_user tbody tr .ng-pristine{
+	display: flex;
+    width: 100%;
+    position: relative;
+	
+}*/
+
+
+.body_content_view_content_table_user tbody tr{
+	display: flex;
+    width: 100%;
+    position: relative;
+}
+
+
+.body_content_view_content_table_user tbody tr input{
 	display: flex;
     width: 100%;
     position: relative;
 	}
 
+
 /*refils*/
+
+
+/*
 .body_content_view_content_top_refills{
     width: 100%;
     float: left;
@@ -878,7 +907,154 @@ border: inherit !important;
     width: 100%;
     position: relative;
 	}
+	*/
+
+
 /*refils end*/
+
+/*Start Refills-2 CSS*/
+.refill_cont2{
+	background:url(images/refill-bg2.png) top center no-repeat;
+	background-size:cover;
+	width:100%;
+	}
+.body_content_view_header_refill2{
+    width: 100%;
+    max-height: 123px;
+    float: left;
+    padding: 34px;
+    position: relative;
+    margin-top:80px;
+	}
+.refill_main_cont img{
+	width: auto;
+	height: auto;
+	float: left;
+	position: relative;
+	margin-bottom: 15px;
+	}
+.refill_main_cont h2{
+	font-size:48px;
+	color:#FFFFFF;
+	float:left;
+	margin:0 0 0 15px;
+	line-height:44px;
+	font-weight:bold;
+	margin-bottom:15px;
+	}
+.refill_main_cont{
+    width: 862px;
+    height: auto;
+    position: relative;
+    display: block;
+    margin: auto;
+    margin-top:100px;
+	}
+.refill_main_cont_main{
+	background:url(images/refill-bg2-inner.png) top center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    padding:20px 20px 50px 20px;
+    position: relative;
+    float: left;
+	}
+.refill_main_cont_main_scroll{
+	width:100%;
+    height: 345px;
+	float: left;
+	position: relative;
+	overflow-y: scroll;
+}
+.refill_main_cont_row{
+	width: 100%;
+	float: left;
+	position: relative;
+	padding: 5px 30px;
+	}
+.refill_main_cont_row h3{
+	width: 100%;
+	float: left;
+	position: relative;
+	padding: 20px 0px;
+	margin-bottom:0;
+	font-size:24px;
+    font-weight: 600;
+	color:#4A4A4A;
+	}
+.refill_main_cont_row p{
+	width: 100%;
+	float: left;
+	position: relative;
+	margin:0;
+	font-size:18px;
+	color:#4A4A4A;
+	}
+.refill_main_cont_row .check_space{
+	padding-left: 50px;
+	}
+.refill_main_cont_row span{
+	position: absolute;
+	top: 0;
+	left: 0px;
+	}
+.refill_main_cont_row label {
+    padding: 0 0 0 40px;
+    display: block;
+    line-height: 30px;
+    float: left;
+    width: 100%;
+    position: relative;
+    margin-bottom:0;
+	font-size:18px;
+	color:#4A4A4A;
+	}
+.refill_main_cont_row input[type="checkbox"]{
+	display:none;
+	}
+.refill_main_cont_row input[type="checkbox"] + label span{
+	width:30px;
+	height:30px;
+	float:left;
+	background:url(images/checkbox.png) left center no-repeat;
+	}
+.refill_main_cont_row input[type="checkbox"]:checked + label span{
+	width:30px;
+	height:30px;
+	float:left;
+	background:url(images/checkbox.png) -32px center no-repeat;
+	}
+.packing_slip_button{
+    width: 100%;
+    float: left;
+    position: absolute;
+    bottom: -22px;
+	}
+.packing_slip_button button{
+	font-size: 24px;
+	color:#FFFFFF;
+	background: url(images/Slips_btn_bg.png);
+    width: 200px;
+    height: 60px;
+    padding: 14px 0;
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-weight:normal;
+	border: none;
+	}
+.packing_slip_button button:focus{
+	outline: none !important;
+	}
+.packing_slip_button a:hover{
+	text-decoration: none;
+	color:#FFFFFF;
+	}
+.packing_slip_button a:focus{
+	text-decoration: none;
+	color:#FFFFFF;
+	}
+/*End Refill-2 css*/
 
 /*ControlTheft*/
 .body_content_view_content_top_theft_control{
@@ -918,12 +1094,19 @@ border: inherit !important;
     width: 100%;
     position: relative;
 	}
-/*ControlTheft*/
+.body_content_view_content_top_theft_control tbody tr{
+	display: flex;
+    width: 100%;
+    position: relative;
+	}
+/*table_user*/
 
 .body_content_view_content_table_user thead .cellEditing{
 	float:left;
 	width:auto !important;
 	}
+
+
 .body_content_view_content_table_user .table-bordered{
 	border:inherit;
 	}
@@ -935,7 +1118,8 @@ border: inherit !important;
 	}
 .first-td{
 	padding-left:22px !important;
-	}
+}
+
 .body_content_view_content_table_user .table-hover > tbody > tr:hover{
 	background-color:inherit;
 	}
@@ -952,12 +1136,16 @@ border: inherit !important;
 	padding:2px 6px;
 	}
 
+
 .body_content_view_content_table_user input::-webkit-input-placeholder {
    color: #249036;
 	}
 .body_content_view_content_table_user input:-moz-placeholder { /* Firefox 18- */
    color: #249036;  
 	}
+
+
+
 .body_content_view_content_table_user input::-moz-placeholder {  /* Firefox 19+ */
    color: #249036;  
 	}
@@ -969,9 +1157,123 @@ border: inherit !important;
 	color:#249036;
 	font-weight:600;
 	}
+
+.body_content_view_content_table_user .table tr .ng-valid ng-dirty ng-touched{
+	border: 1px solid red;
+}
+
 /*End user CSS*/
 
+/*Start Packing Slip CSS*/
+
+.packing_slip_main{
+	background:url(images/refill-bg2-inner.png) top center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    padding:20px 20px 50px 20px;
+    position: relative;
+    float: left;
+	}
+.packing_slip_main_scroll{
+	width:100%;
+    height: 345px;
+	float: left;
+	position: relative;
+	overflow-y: scroll;
+	padding: 0 20px;
+	}
+.packing_slip_main_scroll h1{
+	font-size: 24px;
+    color: #4A4A4A;
+    font-weight: 600;
+    float: left;
+    width: 100%;
+    margin-top: 50px;
+	}
+.packing_slip_table{
+	width: 100%;
+	float: left;
+	position:relative;
+	}
+.packing_slip_table h2{
+	width: 100%;
+	float:left;
+	font-size: 18px;
+	color:#4A4A4A;
+	padding-left:25px;
+	margin: 0;
+	position:relative;
+	}
+.packing_slip_table table{
+    max-width: 100%;
+    float: left;
+    position: relative;
+    margin-left: 50px;
+	}
+.packing_slip_table td{
+    font-size: 14px;
+    color: #4A4A4A;
+    width: 130px;
+    float: left;
+    position: relative;
+    padding-right: 50px;
+    margin-bottom: 10px;
+}
+
+.packing_slip_main_scroll ul{
+		font-size: 14px;
+		color: #4A4A4A;
+		width: 100%;
+		float: left;
+		position: relative;
+		padding-right: 50px;
+		margin-bottom: 10px;
+	}
+.packing_slip_main_scroll ul li{
+    font-size: 14px;
+    color: #4A4A4A;
+    width: 100%;
+    float: left;
+    position: relative;
+    padding-right: 50px;
+    margin-bottom: 10px;
+	list-style: none;
+}
+.packing_slip_main_scroll ul li h2{
+    color: #000000;
+	font-size: 24px;
+	}
+.packing_slip_main_scroll ul .minus_slip{
+	background:url(images/less.png) top center no-repeat;
+    float: left;
+    position: relative;
+    width: 20px;
+    height: 16px;
+}
+.packing_slip_main_scroll ul .plus_slip{
+	background:url(images/increase.png) top center no-repeat;
+    float: left;
+    position: relative;
+    width: 20px;
+    height: 16px;
+	margin-left: 10px;
+}
+.packing_slip_main_scroll .iteam_name{
+	width: 150px;
+	float: left;
+	position: relative;
+}
+.packing_slip_main_scroll .iteam_iteams{
+	width: 50px;
+	padding-left: 20px;
+	float: left;
+	position: relative;
+}
+/*End Packing Slip CSS*/
+
 /*Start refills CSS*/
+
 .body_content_view_content_top_refill .refill_add{
 	background:url(images/Add-r.png) center center no-repeat;
 	width:20px;
@@ -1159,6 +1461,8 @@ border: inherit !important;
 	color:#A445F8;
 	font-weight:600;
 	}
+
+
 /*End Refill css*/
 
 
@@ -1468,12 +1772,42 @@ float: left;
 .overflow-y-true{
 
 	width:100%;
-	height:480px;
+	height:415px;
 	float:left;
 	position:relative;
 	overflow-y: scroll;
 }
-
+.location_pageinnation{
+    width: 100%;
+    float: left;
+    position: relative;
+    padding: 20px 0;
+}
+.location_pageinnation span{
+    min-width: 40px;
+    float: right;
+    position: relative;
+}
+.location_pageinnation span #current_page{
+    min-width: 40px;
+	text-align: center;
+	float: left;
+	position: relative;
+}
+.location_pageinnation span #previous_page{
+	margin-left: 20px;
+	float: left;
+	position: relative;
+}
+.location_pageinnation span #next_page{
+	margin-left: 20px;
+	float: right;
+	position: relative;
+}
+.location_pageinnation span .previous_page{
+	float: left;
+	position: relative;
+}
 /*
 .location_cont_scroll::-webkit-scrollbar {
 	background:transparent;
@@ -1514,11 +1848,16 @@ float: left;
 }
 
 
-
+.sml_faq .css3-animated-example  .open{
+	height: 250px;
+}
+.sml_faq .css3-animated-example  .close{
+	height: 0;
+}
 
 .css3-animated-example .open{
     width: 100%;
-    height: 450px;
+    height: 406px;
     float: left;
     position: relative;
     overflow-y: scroll;
@@ -1648,7 +1987,22 @@ float: left;
     padding: 15px;
     overflow-y: scroll;
  }*/
-.css3-animated-example h3 + .content {
+
+ .close_location{
+	border: none;
+			
+ }
+ .open_location{
+	border: none;
+		
+ }
+ .hide_location{
+	 border: none;
+	 display: none;
+	 
+ }
+ 
+ .css3-animated-example h3 + .content {
   height: 0px;
   padding: 0px;
   overflow: hidden;
@@ -1679,10 +2033,12 @@ float: left;
   margin-bottom: 0;
   float: left;
   width: 100%;
+  color: #ffffff;
+  font-size: 20px;
   padding-right: 20px;
   background-repeat: no-repeat;
   background-image:url(images/faq_titlebar_bg_sm.png);
-  padding: 10px;
+  padding: 14px 10px 10px 20px;
 }
 .sml_faq .css3-animated-example h3 a {
   background: url(images/sprite_sm.png) 12px 12px no-repeat;
@@ -1710,7 +2066,7 @@ float: left;
 	margin-top:0px;
 	width: 100%;
     float: left;
-	height: auto;
+	/*height: auto;*/
 	overflow-y: scroll;
 
 }
@@ -1762,4 +2118,36 @@ float: left;
 	width: 100%;
 }
 /*End View Location*/
+
+
+/*--
+Packing slip main 
+*/
+
+.packing_slip_main_scroll  .open_location{
+	height: 250px;
+}
+.packing_slip_main_scroll  .close_location{
+	height:0px;
+}
+
+.packing_slip_main_scroll .open{
+    width: 100%;
+    height: 406px;
+    float: left;
+    position: relative;
+    overflow-y: scroll;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+	transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease-out;
+}
+
+
 

@@ -7,31 +7,37 @@ import 'rxjs/add/operator/map';
 import { ItemService }       from './items_service';
 import {Http, Response, Headers, RequestOptions}from '@angular/http';
 import { Location }               from '@angular/common';
+//import {ToasterModule, ToasterService} from 'angular2-toaster';
 import "rxjs/add/operator/distinctUntilChanged";
 import "rxjs/add/operator/debounceTime";
 
 @Component({
 
     selector: 'items',
-    templateUrl:'app/components/item/items.html'
+    templateUrl:'app/components/item/items.html',
+     //providers: [ToasterService]
 })
-
 export class ItemComponent implements OnInit{
 
     public items:any[];
-    key        = 'key';
-    keyControl = new FormControl(); 
-    constructor (private http: Http, private location: Location) {}
+        key        = 'key';
+        keyControl = new FormControl(); 
+    //private toasterService: ToasterService;
+    constructor (private http: Http, private location: Location) {
+        // this.toasterService = toasterService;
+         
+    }
             
     jsonURL1 = "https://api.grabngo.market/api/items";
     baseURL = "https://api.grabngo.market";
     nextURL = "";
     prevURL = "";
     _id:number;
-    xx:any[];
-    jsonURL='';
+     xx:any[];
+     jsonURL='';
      
-    loadJSONItem(file:any, callback:any) {   
+    loadJSON(file:any, callback:any) {   
+
         var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
         xobj.open('GET', file, true); // Replace 'my_data' with the path to your file
@@ -42,6 +48,7 @@ export class ItemComponent implements OnInit{
             }
         };
         xobj.send(null);  
+
     }
 
     Item = function Item(_id:any, customer_id:any, barcode:any, description:any, price:any, taxable:any) {
@@ -55,7 +62,7 @@ export class ItemComponent implements OnInit{
 
     load() {
 
-       this.loadJSONItem(this.jsonURL,(response:any)=>{
+       this.loadJSON(this.jsonURL,(response:any)=>{
             var itemsJson = JSON.parse(response);
             this.loadItems(itemsJson)
         });
@@ -63,13 +70,13 @@ export class ItemComponent implements OnInit{
 
     loadpagi() {
 
-       this.loadJSONItem(this.jsonURL1,(response:any)=>{
+       this.loadJSON(this.jsonURL1,(response:any)=>{
             var itemsJson = JSON.parse(response);
             this.loadItems(itemsJson)
         });
     }
 
-    loadItems(itemsJson:any){
+loadItems(itemsJson:any){
         let paginationObj = itemsJson["pagination"];
         //console.log("Test"+paginationObj);
         if(paginationObj != null)
@@ -108,34 +115,79 @@ export class ItemComponent implements OnInit{
         this.load();
     }
 
+        
     dd:string;
     dy:string;  
     submitted = false;
     private getUrl ='https://api.grabngo.market/api/items/id';
     private headers = new Headers({'Content-Type': 'application/json'});
 
-    update(post:any){
-
-            var data = post
-            console.log("Updated");
+/*update(value: any): Observable<any>{
+        console.log("submitted ");
+        console.log("Presses"); 
+            var x = value.description;
+            var y = value.barcode;
+            var a = value.price;
+            var b = value.taxable;
+            var id= value._id;
+            this.dy = y;
+            var data = {
+                "description":x,
+                "barcode":y,
+                "price":a,
+                "taxable":b,
+                "id":id,
+            }
+            console.log("Onclick");         
             console.log(data);
-            const url = `${this.getUrl}/${post._id}`;
+            const url = `${this.getUrl}/${id}`;
+            console.log(url);
+            return this.http.put(url, JSON.stringify(data), {headers: this.headers}).map((res: Response) => res.json()).catch(this.handleError);
+         
+    }
+
+update_value(description:any,barcode:any,price:any,taxable:any,_id:any) {
+
+   this.update(value).subscribe(
+       data => {
+         // refresh the list
+        this.load();
+        this.toasterService.pop('success', 'Updated');
+         return true;
+        
+       },
+       error => {
+         console.error("Error update!");
+         return Observable.throw(error);
+       }
+    );
+  }
+*/
+  
+    update(description:any,barcode:any,price:any,taxable:any,_id:any){
+            var description = description;
+            var barcode= barcode;
+            var price = price;
+            var taxable = taxable;
+            var id = _id;
+            var data = {
+                "description":description,
+                "barcode":barcode,
+                "price":price,
+                "taxable":taxable,
+                "id":id,
+            }
+            console.log("Updated");
+            //console.log(data);
+            const url = `${this.getUrl}/${id}`;
             console.log(url);
             return this.http.put(url, JSON.stringify(data), {headers: this.headers}).toPromise().then(
                 () => {
                     this.load();
-                    
+                    //this.toasterService.pop('success', 'Updated');
                 }
             )
              .catch(this.handleError);;
-
-    }
-
-    toggletaxable(value:any){
-
-        value.taxable=!value.taxable; //Make Toggle
-
-        this.update(value); //Update Performed
 
     }
 
@@ -146,24 +198,25 @@ export class ItemComponent implements OnInit{
         return Observable.throw(errMsg);
     }   
 
-
     private serachUrl ='https://api.grabngo.market/api/items/search';
+
     filter(event:any,value:any){
         var key = value;
-        if(!key){
-            this.jsonURL= "https://api.grabngo.market/api/items";
+
+      if(!key){
+          this.jsonURL= "https://api.grabngo.market/api/items";
+         this.load();
+        console.log("This is test");
+      }else{
+            console.log(key);
+            const url = `${this.serachUrl}/${key}`;;
+            this.jsonURL= url;
+            console.log(this.jsonURL);
             this.load();
-            //console.log("This is test");
-        }else{
-                //console.log(key);
-                const url = `${this.serachUrl}/${key}`;;
-                this.jsonURL= url;
-                //console.log(this.jsonURL);
-                this.load();
-        }
+
+      }
   
     }
-
     
 }
 

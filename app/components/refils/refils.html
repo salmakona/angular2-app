@@ -1,4 +1,3 @@
-
 <div class="body_header">
     <div class="container">
          <div class="contact" style="float: right;height: auto;margin-top: -5%;margin-right: 37%;">
@@ -10,7 +9,8 @@
     </div>
 </div>
 
-<div class="body_content_view_main refill_cont">
+<div class="body_content_view_main refill_cont2">
+    <!--
     <div class="body_content_view_header_refill">
         <div class="col-xs-4">
             <img src="app/components/images/refills-tab-icon.png" alt="">
@@ -55,15 +55,46 @@
                     <tr>
                          <form #f="ngForm">
                             <td class="first-td"><span class="minus-refill"></span>
-                            <input type="text" placeholder="Globus"> </td>
-                            <td><input type="text" placeholder=" 6/25/16"></td>
-                            <td><input type="text" placeholder="$175.25"></td>
-                            <td><input type="text" placeholder="5%"></td>
+                                <input type="text" placeholder="Globus"> </td>
+                                <td><input type="text" placeholder=" 6/25/16"></td>
+                                <td><input type="text" placeholder="$175.25"></td>
+                                <td><input type="text" placeholder="5%"></td>
                          </form>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+    -->
+   
+<div class="refill_main_cont">
+            <div class="col-xs-12">
+                <img src="app/components/images/refills-tab_icon.png" alt="">
+                <h2>Refills</h2>
+            </div>
+            <div class="refill_main_cont_main">
+                <form  (ngSubmit)="onSubmit()">
+                    <div class="refill_main_cont_main_scroll">
+                        <div class="refill_main_cont_row">
+                            <div class="col-xs-8"><h3>Location</h3></div>
+                            <div class="col-xs-4"><h3>ID</h3></div>
+                        </div>
+                        <!--<div class="refill_main_cont_row" *ngFor="let items of posts.locations">-->
+                        <div class="refill_main_cont_row" *ngFor="let items of xx">
+                            <div class="col-xs-8">
+                                <input #itemsid type="checkbox" value="{{items._id}}" (change)="logCheckbox(itemsid)" id="{{items._id}}" name="check">
+                                <label class="label5" for="{{items._id}}"><span></span>{{items.name}}</label>
+                            </div>
+                            <div class="col-xs-4">
+                                <p>{{items._id}}</p>
+                            </div>
+                        </div>
+                </div>
+                <div class="packing_slip_button">
+                    <!--<a href="packing_slip.html">Create Packing Slips</a>-->
+                    <button type="submit">Create Packing Slips</button>
+                </div> 
+    </form>
 </div>
+
 

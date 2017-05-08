@@ -1,0 +1,42 @@
+ <div class="body_header">
+    <div class="container">
+         <div class="contact" style="float: right;height: auto;margin-top: -5%;margin-right: 37%;">
+            <ul>
+                <li class="logout-bg" ><a [routerLink]="['/login']" class="logout-bg"></a></li>
+                <li class="admin-bg"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+ <div class="body_content_view_main refill_cont2">
+            <div class="refill_main_cont">
+                <div class="packing_slip_main">
+                    <div class="packing_slip_main_scroll">
+                            <ul *ngFor="let location of posts">
+                                <li>
+                                    <h1>{{location.name}}</h1>
+                                    <ul *ngFor="let fixture of location.fixtures">
+                                        <li>
+                                            <h2>{{fixture.name}}</h2>
+                                            <ul *ngFor="let item of fixture.items">
+                                                <li>
+                                                    <span class="iteam_name">{{ item.name }}</span>
+
+                                                    <span class="iteam_iteams">{{item.quantity}}</span>
+
+                                                    <span class="minus_slip" (click)="minus(item)"></span>
+                                                    <span class="plus_slip" (click)="plus(item)"></span>
+                                                </li>
+                                            </ul>
+                                        </li>                             
+                                    </ul>
+                                </li>  
+                            </ul>
+                        </div>
+                        <div class="packing_slip_button">
+                                    <button>Confirm Packing Slip</button>
+                        </div>
+                               
+                </div>
+            </div>
+</div>
