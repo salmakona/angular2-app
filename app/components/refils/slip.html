@@ -14,22 +14,32 @@
                     <div class="packing_slip_main_scroll">
                             <ul *ngFor="let location of posts">
                                 <li>
-                                    <h1>{{location.name}}</h1>
-                                    <ul *ngFor="let fixture of location.fixtures">
-                                        <li>
-                                            <h2>{{fixture.name}}</h2>
-                                            <ul *ngFor="let item of fixture.items">
-                                                <li>
-                                                    <span class="iteam_name">{{ item.name }}</span>
-
-                                                    <span class="iteam_iteams">{{item.quantity}}</span>
-
-                                                    <span class="minus_slip" (click)="minus(item)"></span>
-                                                    <span class="plus_slip" (click)="plus(item)"></span>
+                                    <!--Parent key-->
+                                        <h1 (click)="collapse(location)">
+                                            <span *ngIf="location.isExpanded"> {{location.name}}</span>
+                                            <span *ngIf="!location.isExpanded"> {{location.name}}</span>
+                                        </h1>
+                                         <!--Parent div-->
+                                        <ul *ngIf="location.isExpanded" [ngClass]="{'open': location.isExpanded, 'close': !location.isExpanded}">
+                                               <li *ngFor="let fixture of location.fixtures">
+                                                        <div>
+                                                               <h2 (click)="fixturecollapse(fixture)">
+                                                                    <span *ngIf="fixture.isfixtureExpanded">{{fixture.name}}</span>
+                                                                    <span *ngIf="!fixture.isfixtureExpanded">{{fixture.name}}</span>
+                                                                </h2>
+                                                                <div *ngIf="fixture.isfixtureExpanded" [ngClass]="{'open1': fixture.isfixtureExpanded, 'close': !fixture.isfixtureExpanded}">
+                                                                        <ul *ngFor="let item of fixture.items">
+                                                                                <li>
+                                                                                    <span class="iteam_name">{{ item.name }}</span>
+                                                                                    <span class="iteam_iteams">{{item.quantity}}</span>
+                                                                                    <span class="minus_slip" (click)="minus(item)"></span>
+                                                                                    <span class="plus_slip" (click)="plus(item)"></span>
+                                                                                </li>
+                                                                        </ul>
+                                                                </div>
+                                                        </div>
                                                 </li>
-                                            </ul>
-                                        </li>                             
-                                    </ul>
+                                        </ul>  
                                 </li>  
                             </ul>
                         </div>

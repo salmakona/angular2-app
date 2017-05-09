@@ -58,28 +58,31 @@ export class RefilsComponentslip implements OnInit,OnDestroy{
                 item.quantity--;
             }
         }
-        locationx:any[];
-        open = false;hide =false;
-        overflow = true;
-         /*private collapse(data:any){data.isExpanded = !data.isExpanded;
-                for(var i=0; i<this.locationx.length; i++){
-                    if(data._id != this.locationx[i]._id){
-                        if(data.isExpanded){
-                            this.overflow = false;
-                            this.locationx[i].hide =true;
-                        }else{
-                            this.overflow = true;
-                            this.locationx[i].hide =false;
-                        }
-                    }
-                }
-        } */
-        private collapse(data:any){
-            data.isExpanded = !data.isExpanded;
 
+       open = false;hide =true;
+         private collapse(data:any){
+             
+            data.isExpanded = !data.isExpanded;
+            if(data.isExpanded){
+                this.hide =false;
+            }else{
+                this.hide =true;
+            }
+            
         }
-        private itemcollapse(data:any){data.isitemExpanded = !data.isitemExpanded;}
-        private inventorycollapse(data:any){data.isinevtoryExpanded = !data.isinevtoryExpanded;} 
+                
+        open1 = false;hide1 =true;
+          private fixturecollapse(data:any){
+
+                data.isfixtureExpanded = !data.isfixtureExpanded;
+                if(data.isfixtureExpanded){
+                    this.hide1 =false;
+                }else{
+                    this.hide1 =true;
+                }  
+        } 
+         
+
 
 }
 
