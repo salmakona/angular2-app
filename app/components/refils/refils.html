@@ -66,18 +66,29 @@
         </div>
     </div>
     -->
-   
-<div class="refill_main_cont">
-            <div class="col-xs-12">
-                <img src="app/components/images/refills-tab_icon.png" alt="">
+ <div class="body_content_view_header_refill" >
+        <div class="col-xs-4" [@FedInLeft]='state'>
+ <img src="app/components/images/refills-tab_icon.png" alt="">
                 <h2>Refills</h2>
+        </div>
+        <div class="col-xs-8" [@FedInRight]='state'>
+            <div class="body_content_view_header_refill_search">
+                <input id="searchBox" class="text_re" type="text"/>
+                <input class="submit_re" type="submit" value="">
             </div>
-            <div class="refill_main_cont_main">
+        </div>
+    </div>
+   
+<div class="refill_main_cont" [@FedInUp]='state'>
+            <div class="col-xs-12">
+               
+            </div>
+            <div class="refill_main_cont_main" >
                 <form  (ngSubmit)="onSubmit()">
                     <div class="refill_main_cont_main_scroll">
                         <div class="refill_main_cont_row">
                             <div class="col-xs-8"><h3>Location</h3></div>
-                            <div class="col-xs-4"><h3>ID</h3></div>
+                            <!--<div class="col-xs-4"><h3>ID</h3></div>-->
                         </div>
                         <!--<div class="refill_main_cont_row" *ngFor="let items of posts.locations">-->
                         <div class="refill_main_cont_row" *ngFor="let items of xx">
@@ -86,7 +97,7 @@
                                 <label class="label5" for="{{items._id}}"><span></span>{{items.name}}</label>
                             </div>
                             <div class="col-xs-4">
-                                <p>{{items._id}}</p>
+                                <!--<p>{{items._id}}</p>-->
                             </div>
                         </div>
                 </div>

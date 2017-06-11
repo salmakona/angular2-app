@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { contentHeaders } from './headers';
 import { Observable } from 'rxjs/Observable';
 import{AlertService} from './alert.service'
+import {trigger, state, style, animate, transition } from '@angular/core';
 
 
 @Component({

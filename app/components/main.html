@@ -5,13 +5,7 @@
                     <div class="container">
                         <div class="logo"><a href="#"><img src="app/components/images/Logo.png" alt="" title=""></a></div>
                         <div class="contact">
-                            <h3>Phone: +1-949-689-7995</h3>
-                            <!--<ul>
-
-                                <li class="logout-bg" *ngIf="showlogin()"> <a [routerLink]="['/login']" class="logout-bg"></a></li>
-                                <li class="admin-bg"></li>
-                            </ul>-->
-
+                            <h3>Phone: +1-858-736-6808</h3>
                         </div>
                     </div>
                 </div>
@@ -20,17 +14,17 @@
             <div class="container">
                 <div class="body_content_tab">
                     <ul>
-                        <li><a [routerLink]="['/location']" routerLinkActive="active"><img src="app/components/images/locations-tab.png" alt=""></a></li>
+                        <li><a [routerLink]="['/viewlocation']" routerLinkActive="active"><img src="app/components/images/locations-tab.png" alt=""></a></li>
                         <li><a [routerLink]="['/items']" routerLinkActive="active"><img src="app/components/images/items-tab.png" alt=""></a></li>
-                        <li><a [routerLink]="['/users']" routerLinkActive="active"><img src="app/components/images/user-tab.png" alt=""></a></li>
+                        <li><a [routerLink]="['/users']"routerLinkActive="active"><img src="app/components/images/user-tab.png" alt=""></a></li>
                         <li><a [routerLink]="['/refils']" routerLinkActive="active"><img src="app/components/images/refills-tab.png" alt=""></a></li>
                         <li><a [routerLink]="['/theftcontrol']" routerLinkActive="active"><img src="app/components/images/theft-control-tab.png" alt=""></a></li>
                         <li><a [routerLink]="['/report']" routerLinkActive="active"><img src="app/components/images/reports-tab.png" alt=""></a></li>
-                        
                     </ul>
                 </div>
-                <div class="body_content_view">
-                    <router-outlet></router-outlet>
+                <div class="body_content_view" >
+                   
+                        <router-outlet></router-outlet>
                 </div>
             </div>
         </div>

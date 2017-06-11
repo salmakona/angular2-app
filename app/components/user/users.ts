@@ -5,11 +5,13 @@ import 'rxjs/add/operator/map';
 import "rxjs/add/operator/distinctUntilChanged";
 import "rxjs/add/operator/debounceTime";
 import {Http, Response, Headers, RequestOptions}from '@angular/http';
+import {Annimation} from '../animations/animation';
 
 
 @Component({
     selector: 'users',
-    templateUrl:'app/components/user/user.html'
+    templateUrl:'app/components/user/user.html',
+    animations: [Annimation]
 })
 
 export class UserComponent {
@@ -109,18 +111,18 @@ export class UserComponent {
         private getUrl ='https://api.grabngo.market/api/users/id';
         private headers = new Headers({'Content-Type': 'application/json'});
 
-        update(phonenum:any,balance:any,passcode:any,userid:any){
-        var phonenum = phonenum;
-        var balance= balance;
-        var passcode = passcode;
-        var userid = userid;
-        console.log(userid);
-        var data = {
-            "phone_num":phonenum,
-            "balance":balance,
-            "passcode":passcode,
-            "id":userid,
-        }
+        /*update(phonenum:any,balance:any,passcode:any,userid:any){
+            var phonenum = phonenum;
+            var balance= balance;
+            var passcode = passcode;
+            var userid = userid;
+            console.log(userid);
+            var data = {
+                "phone_num":phonenum,
+                "balance":balance,
+                "passcode":passcode,
+                "id":userid,
+            }
             console.log(data);
             const url = `${this.getUrl}/${userid}`;
             console.log(url);
@@ -132,6 +134,68 @@ export class UserComponent {
             )
                 .catch(this.handleError);;
 
+        }*/
+        // customer_id:any;
+        // phone_num:any;
+        balance:any;
+      
+        update(post:any){
+            var data = post;
+            console.log(data);
+            const url = `${this.getUrl}/${post._id}`;
+            console.log(url);
+            return this.http.put(url, JSON.stringify(data), {headers: this.headers}).toPromise().then(
+                () => {
+                    this.load();
+                    
+                }
+            )
+            .catch(this.handleError);
+
+        }   
+
+        //  balance:any;
+        blanceUpdate(post:any){
+            var str =  post.balance.toString();
+            var balance1 = str.substring(1);
+            console.log(balance1);
+
+                var balance={
+                    balance:balance1,
+                }
+            console.log(balance);
+
+            const url = `${this.getUrl}/${post._id}`;
+                console.log(url);
+                return this.http.put(url, JSON.stringify(balance), {headers: this.headers}).toPromise().then(
+                    () => {
+                        this.load();
+                        
+                    }
+                )
+                .catch(this.handleError);
+        }
+
+        phoneUpdate(post:any){
+            var number = post.phone_num.toString();
+            // console.log(number);
+            var phone_num = number.substring(1,4)+number.substring(6,9)+number.substring(10,14);
+            // console.log(phone_num);
+
+                var phone={
+                    phone_num:phone_num,
+                }
+            console.log(phone);
+
+            const url = `${this.getUrl}/${post._id}`;
+                console.log(url);
+                return this.http.put(url, JSON.stringify(phone), {headers: this.headers}).toPromise().then(
+                    () => {
+                        this.load();
+                        
+                    }
+                )
+                .catch(this.handleError);
         }
 
         private handleError(error:any) {

@@ -10,8 +10,19 @@
                 </div>
     </div>
    <div class="location-bg">
-            <div class="body_content_view_main_view location_cont">
-                 <div class="view_location_title">
+            <div class="body_content_view_main_view location_cont" [@BackgroundfadeIn]='state'>
+                        <div class="body_content_view_header" style="padding-top: 0">
+                            <div class="col-xs-4" [@FedInLeft]='state'>
+                                <img src="app/components/images/location-title.png" alt="">
+                            </div>
+                            <div class="col-xs-8" [@FedInRight]='state'>
+                                <div class="body_content_view_header_secrch">
+                                    <input  class="text_l" placeholder="Search" type="text">
+                                    <input class="submit_location" type="submit" value="">
+                                </div>
+                            </div>
+                        </div>
+                 <!--<div class="view_location_title">
                     <div class="view_location_title_main">
                         <img src="app/components/images/location-title.png" alt="">
                     </div>
@@ -21,23 +32,20 @@
                             <input class="text_l" type="text" placeholder="Search">
                         </div>
                     </div>
-                </div>
+                </div>-->
 
                 <!--<div class="location_cont_scroll" [ngClass]="{'overflow-y-true': overflow, 'overflow-y-false': !overflow }"> -->
                 <div  [ngClass]="{'overflow-y-true': overflow, 'overflow-y-false': !overflow }"> 
 
-                    <div class="css3-animated-example" *ngFor="let location of locationx" [ngClass]="{'open_location': location.isExpanded, 'close_location': !location.isExpanded,'hide_location':location.hide}">
+                    <div class="css3-animated-example" *ngFor="let location of locationx" [ngClass]="{'open_location': location.isExpanded, 'close_location': !location.isExpanded,'hide_location':location.hide}" [@FedInDown]='state'>
                         <h3 (click)="collapse(location)">
                             <a ng-href="#"> 
-                                <div  *ngIf="location.isExpanded"> {{location.name}} <span class="minus"></span></div>
+                                <div  *ngIf="location.isExpanded"> {{location.name}}<span class="minus"></span></div>
                                 <div  *ngIf="!location.isExpanded">{{location.name}} <span class="plus"></span></div>
                             </a>
                         </h3>
                         <div [ngClass]="{'open': location.isExpanded, 'close': !location.isExpanded}">
-                                <h2>Statistics</h2>
-                                <li>Registerd User: {{location.registered_users}} </li>
-                                <li>Average Reload: {{location.average_reload}} </li>
-                                <li>Average Puschare: {{location.average_purchase}} </li>
+                                
                                 <!--Item-->
                                 <div class="sml_faq">
                                     <div class="css3-animated-example">
@@ -50,18 +58,32 @@
                                                 <table>
                                                     <thead>
                                                         <tr> 
+                                                            <th>description</th>
                                                             <th>Price</th>
                                                             <th>barcode</th>
-                                                            <th>description</th>
-                                                            <th>id</th>
+                                                          
+                                                            <!--<th>id</th>-->
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr *ngFor="let items of location.items">
+                                                            <!--<td>{{items.description}}</td>
                                                             <td>{{items.price}}</td>
-                                                            <td>{{items.barcode}}</td>
-                                                            <td>{{items.description}}</td>
-                                                            <td>{{items._id}}</td>
+                                                            <td>{{items.barcode}}</td>-->
+                                                            <!--<td>{{items._id}}</td>-->
+                                                            <td>
+                                                                <!--<input type="text" [(ngModel)]="post.description" name="description" id ="description" (change)="update(post)" #description/>-->
+                                                                <input type="text" [(ngModel)]="items.description" name="description" id ="description" (change)="update(items)" #description>
+                                                            </td>
+                                                            <td>
+                                                                <!--<input type="text" [(ngModel)]="items.price" name="price" id ="price" (change)="update(items)" #price/>-->
+                                                                 <!--<input type="text" [ngModel]="items.price | myCurrencyPipe" (ngModelChange)="items.price= $event" (change)="itemPriceUpdate(items.price)" name="price" id ="price" />-->
+                                                                 <input type="text" [ngModel]="items.price | myCurrencyPipe"  (ngModelChange)="items.price= $event"  (change)="itemPriceUpdate(items)" name="price" id ="price" />
+                                                            </td>
+                                                            <td> 
+                                                                <input type="text" [(ngModel)]="items.barcode" name="barcode" id ="barcode" (change)="update(items)" #barcode/>
+                                                            </td>
+                                                                
                                                         </tr>
                                                         
                                                     </tbody>
@@ -79,7 +101,40 @@
                                         </h3>
                                         <div [ngClass]="{'open': location.isinevtoryExpanded, 'close': !location.isinevtoryExpanded}">
                                             <div class="content" >
-                                                <table>
+                                                <ul *ngFor="let items of location.items">
+                                                     <li>
+                                                        <h4 (click)="fixturecollapse(items)"> 
+                                                            <div *ngIf="items.isfixtureExpanded"><span class="minus_h2"></span>{{items.fixture_desc}}</div>
+                                                            <div *ngIf="!items.isfixtureExpanded"> <span class="plus_h2"></span>{{items.fixture_desc}}</div>
+                                                        </h4>
+                                                        <ul [ngClass]="{'open1': items.isfixtureExpanded, 'close': !items.isfixtureExpanded}">
+                                                            <li> 
+                                                                <span class="iteam_name" >{{items.description}}</span>
+                                                                <span class="iteam_iteams">{{items.inventory}}</span>
+
+                                                                <span class="minus_slip" (click)="minus(items,location._id)"></span>
+                                                                <span class="plus_slip" (click)="plus(items,location._id)"></span>
+                                                                    
+                                                                    <!--<label>LOCATion ID</label>
+                                                                    <input type="text" [(ngModel)]="location._id">-->
+                                                                    
+
+                                                                <span class="min_input">
+                                                                    <label>Min</label>
+                                                                    <input type="text" [(ngModel)]="items.min" (change)="minupdate(location._id,items)" name="min">
+                                                                </span>
+                                                                <span class="max_input">
+                                                                    <label>Max</label>
+                                                                    <input type="text" [(ngModel)]="items.max" (change)="minupdate(location._id,items)" name="max">
+                                                                </span>
+                                                                   <!--{{items.min}}
+                                                                   {{items.max}}-->
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                        
+                                                </ul>
+                                                <!--<table>
                                                     <thead>
                                                         <tr> 
                                                             <th>Price</th>
@@ -96,9 +151,59 @@
                                                             <td>id</td>
                                                         </tr>
                                                     </tbody>
-                                                </table>
+                                                </table>-->
+                                                <!--<div class="col-xs-4">
+                                                    <h2>Description</h2>
+                                                    <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </p>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <h2>Inventory</h2>
+                                                    <img src="app/components/images/inventory.png">
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <div class="inventory_button_area">
+                                                        <input class="inventory_add" type="button">
+                                                        <input class="inventory_minus" type="button">
+                                                    </div>
+                                                </div>-->
                                         </div>
                                     </div>
+                                </div>
+                                <div class="sml_faq">
+                                     <div class="css3-animated-example">
+                                         <h3 (click)="configurationcollapse(location)">
+                                            <div *ngIf="location.isconfigurationcollapseExpanded">  Configuration {{openin}} <span class="minus"></span></div>
+                                            <div *ngIf="!location.isconfigurationcollapseExpanded">  Configuration {{openin}} <span class="plus"></span></div>
+                                         </h3>
+                                         <div [ngClass]="{'open': location.isconfigurationcollapseExpanded, 'close': !location.isconfigurationcollapseExpanded}">
+                                            <div class="content" >
+                                                    <h2>Statistics</h2>
+                                                    <li>Registerd User: {{location.registered_users}} </li>
+                                                    <li>Average Reload: {{location.average_reload}} </li>
+                                                    <li>Average Puschare: {{location.average_purchase}} </li>
+                                                    <table>
+                                                        <thead>
+                                                            <tr>
+                                                            <th>Sign Up Bonus</th>
+                                                            <th>tax Rate</th>
+                                                            <th>Location Name</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                 <td><input type="text" [(ngModel)]="location.signup_bonus"></td>
+                                                                <td> <input type="text" [(ngModel)]="location.tax_rate"></td>
+                                                                 <td><input type="text" [(ngModel)]="location.name"></td>
+                                                                <!--<td>{{location.signup_bonus}}</td> 
+                                                                <td>{{location.tax_rate}}</td>
+                                                                <td>{{location.tax_rate}}</td>
+                                                                <td>{{location.name}}</td>-->
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                            </div>
+                                         </div>
+                                     </div>
                                 </div>
                         </div>
                     </div>

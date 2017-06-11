@@ -7,11 +7,13 @@ import{RefilsService}  from './refils_service';
 import { Router, Routes, RouterModule,ActivatedRoute} from '@angular/router';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import{RefilsComponentslip} from './slip';
+import {Annimation} from '../animations/animation';
 
 @Component({
     selector: 'refils',
     templateUrl:'app/components/refils/refils.html',
-    providers: [RefilsService]
+    providers: [RefilsService],
+    animations: [Annimation]
     
 })
 export class RefilsComponent implements OnInit{
@@ -29,7 +31,7 @@ export class RefilsComponent implements OnInit{
         private posts:any[] = [];
         private errorMessage:any = '';
 
-        baseURL = "https://api.grabngo.market";
+        relbaseURL = "https://api.grabngo.market";
         nextURL = "";
         prevURL = "";
         _id:number;
@@ -75,9 +77,9 @@ export class RefilsComponent implements OnInit{
 
         ngOnInit() { 
 
-            this.rjsonURL = 'https://api.grabngo.market/api/locations';
+            // this.rjsonURL = 'https://api.grabngo.market/api/locations';
+            this.rjsonURL = 'https://api.grabngo.market/api/locations/names';
             this.rload();
-
             //this.getPosts();
 
         }
@@ -105,24 +107,15 @@ export class RefilsComponent implements OnInit{
         
         onSubmit(){
             if(this.submitted = true){
-                //console.log(this.selected);
+                console.log(this.selected);
                 var length = this.selected.length;
                     if(length>0){
                         var id = this.selected;
-                        //console.log(length);
-                        /*for (let i of id) {
-                            console.log(i); 
-                        }
-                        console.log(id);
-                        */
-                        for(var i =0; i < id.length;i++){
-                            var x = id[i];
-                        }
-                        //console.log(x);
-                    this.service.setSubmittedata(this.selected);
-                    this._router.navigate(["/refils-slip"]);  
+                        this.service.setSubmittedata(this.selected);
+                        this._router.navigate(["/refils-slip"]);
+
                         }else{
-                            // console.log(length);
+                           
                             this._router.navigate(["/refils"]);
                         }
                     //this.isId = this.selected;

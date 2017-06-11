@@ -9,6 +9,18 @@
     </div>
 </div>
  <div class="body_content_view_main refill_cont2">
+      <div class="body_content_view_header_refill">
+        <div class="col-xs-4">
+            <img src="app/components/images/refills-tab_icon.png" alt="">
+                            <h2>Refills</h2>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="body_content_view_header_refill_search">
+                            <input id="searchBox" class="text_re" type="text"/>
+                            <input class="submit_re" type="submit" value="">
+                        </div>
+                    </div>
+            </div>
             <div class="refill_main_cont">
                 <div class="packing_slip_main">
                     <div class="packing_slip_main_scroll">
@@ -16,37 +28,93 @@
                                 <li>
                                     <!--Parent key-->
                                         <h1 (click)="collapse(location)">
-                                            <span *ngIf="location.isExpanded"> {{location.name}}</span>
-                                            <span *ngIf="!location.isExpanded"> {{location.name}}</span>
+                                            <span *ngIf="location.isExpanded"> <span class="minus_h1"></span>{{location.name}}</span>
+                                            <span *ngIf="!location.isExpanded"> <span class="plus_h1"></span>{{location.name}}</span>
                                         </h1>
                                          <!--Parent div-->
                                         <ul *ngIf="location.isExpanded" [ngClass]="{'open': location.isExpanded, 'close': !location.isExpanded}">
+
                                                <li *ngFor="let fixture of location.fixtures">
                                                         <div>
                                                                <h2 (click)="fixturecollapse(fixture)">
-                                                                    <span *ngIf="fixture.isfixtureExpanded">{{fixture.name}}</span>
-                                                                    <span *ngIf="!fixture.isfixtureExpanded">{{fixture.name}}</span>
+                                                                    <span *ngIf="fixture.isfixtureExpanded"><span class="minus_h2"></span>{{fixture.name}}</span>
+                                                                    <span *ngIf="!fixture.isfixtureExpanded"><span class="plus_h2"></span>{{fixture.name}}</span>
                                                                 </h2>
                                                                 <div *ngIf="fixture.isfixtureExpanded" [ngClass]="{'open1': fixture.isfixtureExpanded, 'close': !fixture.isfixtureExpanded}">
                                                                         <ul *ngFor="let item of fixture.items">
+                                                                            
                                                                                 <li>
-                                                                                    <span class="iteam_name">{{ item.name }}</span>
-                                                                                    <span class="iteam_iteams">{{item.quantity}}</span>
+                                                                                    <span class="iteam_name">{{item.name }}</span>
+                                                                                    <span class="iteam_iteams">{{item.quantityupdate}}</span>
                                                                                     <span class="minus_slip" (click)="minus(item)"></span>
                                                                                     <span class="plus_slip" (click)="plus(item)"></span>
+                                                                                    <span class="min_input">
+                                                                                        <label>Min</label>
+                                                                                        <input type="text" [(ngModel)]="item.min">
+                                                                                    </span>
+                                                                                    <span class="max_input">
+                                                                                        <label>Max</label>
+                                                                                        <input type="text" [(ngModel)]="item.max">
+                                                                                    </span>
                                                                                 </li>
+                                                                          
                                                                         </ul>
-                                                                </div>
+                                                                </div> 
                                                         </div>
+                                                        
                                                 </li>
-                                        </ul>  
-                                </li>  
+                                                <div class="button_area">
+                                                    <button class="packing_slip_button2"  (click)="confirm_slip(location)">Confirm Packing Slip</button>
+                                                    <button class="print_slip_button btn" data-toggle="modal" data-target="#myModal" (click)="print_slip(location,location.name)">Print Packing Slip</button>
+                                                    <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
+                                                </div>
+                                        </ul> 
+                                    </li>  
+                                 <hr>
                             </ul>
-                        </div>
-                        <div class="packing_slip_button">
-                                    <button>Confirm Packing Slip</button>
-                        </div>
-                               
+                           
+                        </div>        
                 </div>
             </div>
+
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">{{location_name}}</h4>
+        </div>
+        <div class="modal-body" id="print-section">
+         <ul *ngFor="let object of items2">
+             <li>
+                <h2> <span>{{object.name}}</span></h2>
+                  <!--<ul *ngFor="let item of items3">
+                     
+                     <li>
+                         <span class="iteam_name">{{object.items.name}}</span>  <span class="iteam_iteams">Quantity - ({{items.quantityupdate}})</span>
+                      
+                    </li>
+                </ul>-->
+                <ul *ngFor="let object1 of object.items">
+                    <span class="iteam_name">{{object1.name}}</span>  <span class="iteam_iteams">Quantity - ({{object1.quantityupdate}})</span>
+                </ul>
+            </li>
+         </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button (click)="print()" class="btn btn-default" type="button">Print </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+<!-- Modal -->
+
 </div>

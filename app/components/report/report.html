@@ -12,16 +12,16 @@
 </div>
 <div class="body_content_view_main report_cont">
     <div class="report_cont_main">
-        <div class="report_cont_main_title">
-            <div class="col-xs-12"><img src="app/components/images/Reports-title.png" alt=""></div>
+        <div class="report_cont_main_title" [@Expanded]='state'>
+            <div class="col-xs-12" [@FedInDown]='state'><img src="app/components/images/Reports-title.png" alt=""></div>
         </div>
         <div class="report_cont_main_body">
             <div class="location_box">
-                <div class="col-xs-4"><img src="app/components/images/previous_location.png" alt=""></div>
-                <div class="col-xs-4"><img src="app/components/images/by_location.png" alt=""></div>
-                <div class="col-xs-4"><img src="app/components/images/all_location.png" alt=""></div>
+                <div class="col-xs-4" [@FedInUpOne]='state'><img src="app/components/images/previous_location.png" alt=""></div>
+                <div class="col-xs-4" [@FedInUpTwo]='state'><img src="app/components/images/by_location.png" alt=""></div>
+                <div class="col-xs-4" [@FedInUpThree]='state'><img src="app/components/images/all_location.png" alt=""></div>
             </div>
-            <div class="search_report_area">
+            <div class="search_report_area" [@Opacity]='state'>
                 <div class="search_report_area_main">
                     <img src="app/components/images/search_r.png" alt="">
                     <h2>Search for Location by Name</h2>

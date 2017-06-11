@@ -5,7 +5,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 
-
 @Injectable()
 export class RefilsService {
 
@@ -30,18 +29,31 @@ export class RefilsService {
         console.error(errMsg);
         return Observable.throw(errMsg);
     }
-     
-    setSubmittedata(data:any){
 
-           localStorage.refil_items = data;
+    setSubmittedata(data:any){
+           
+           //localStorage.refil_items = data;
+            localStorage.setItem('refil_items',data);
 
     }
 
+    x:any[]=[];
     getSubmittedata(){
 
-           return localStorage.refil_items;
+       var x = localStorage.getItem('refil_items');
+        if(typeof(x)=='string'){
+            var result = [];
+            var s_split = x.split(',')
+            for(var i=0;i<s_split.length;i++){
+                result.push(""+s_split[i])
+            }
+            //console.log(result)
+            return result
+        }
+        //return localStorage.refil_items;
 
     }
+
     clearRefilsdata(){
         localStorage.removeItem('refil_items')
     }
@@ -52,30 +64,19 @@ export class RefilsService {
     processLocation:any[];
     location_data:any;
 
-    /*loadJSON(file:any, callback:any){   
-        var xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/json");
-        xobj.open('POST', file, true); // Replace 'my_data' with the path to your file
-        xobj.onreadystatechange = function () {
-            if (xobj.readyState == 4) {
-                // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-                callback(xobj.responseText);
-            }
-        };
-        xobj.send(null);  
-    }
+    locaions:any[]=[];
+    location_id:any;
+    // for packing slip
+    loadinventorydata(location_id:any){ 
 
-    load(){
-            this.loadJSON(this.jsonURL, function(response:any)=> {
-                    var pickingSlipJson = JSON.parse(response);
-                    this.parsePickingSlip(pickingSlipJson)
-                });
-                
-    }*/
+        var locations =location_id;
+        
+        let body = JSON.stringify({locations});
+        console.log(body);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers }); 
+        return this.http.post(this.inventory_Url, body,options).map(this.parsePickingSlip);
 
-    loadata(){
-        return this.http.post(this.inventory_Url,(response:any)=>{               
-                }).map(this.parsePickingSlip);
     }
 
     locaion_name_list:any[]=[];
@@ -141,7 +142,11 @@ export class RefilsService {
                 {   
                     item_data.push({
                         name:fixture_name[itemObj]["description"],
-                        quantity: fixture_name[itemObj]["inventory"]
+                        quantity: fixture_name[itemObj]["inventory"],
+                        quantityupdate:fixture_name[itemObj]["inventory"],
+                        min: fixture_name[itemObj]["min"],
+                        max: fixture_name[itemObj]["max"],
+                        barcode:fixture_name[itemObj]["barcode"]
                     });     
                 }       
             }

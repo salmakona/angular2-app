@@ -1,4 +1,5 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -20,16 +21,14 @@ import { AuthGuard } from './components/login_register/auth.guard';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AuthenticationService} from './components/login_register/authentication.service';
 import { ItemSearchComponent }  from './components/item/search_item';
-import {FilterPipe} from "./components/item/filter_pipe";
+import {FilterPipe,MyCurrencyPipe,NumberPipe} from "./components/item/filter_pipe";
 import {ViewLocationComponent} from "./components/location/view_location";
-//import {ToasterModule, ToasterService} from 'angular2-toaster';
-
 
 
 @NgModule({
-    imports:      [ BrowserModule, routing,HttpModule,FormsModule,ReactiveFormsModule],
+    imports:      [ BrowserModule, routing,HttpModule,FormsModule,ReactiveFormsModule,BrowserAnimationsModule],
     declarations: [ AppComponent, LocationComponent,ItemComponent,ItemSearchComponent, 
-    FilterPipe,UserComponent,RefilsComponent,TheftcontrolComponent,
+    FilterPipe,MyCurrencyPipe,NumberPipe,UserComponent,RefilsComponent,TheftcontrolComponent,
     ReportComponent,LoginComponent,Signup,ViewLocationComponent,RefilsComponentslip],
     providers:[
         AuthGuard,

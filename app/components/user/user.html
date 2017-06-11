@@ -12,31 +12,31 @@
 
     <div class="body_content_view_main user_cont">
         <div class="body_content_view_header_user">
-            <div class="col-xs-4">
+            <div class="col-xs-4" [@FedInLeft]='state'>
                 <img src="app/components/images/titlebar-user-icon.png" alt="">
                 <h2>User</h2>
             </div>
-            <div class="col-xs-8">
+            <div class="col-xs-8" [@FedInRight]='state'>
                 <div class="body_content_view_header_user_search">
                     <input #key (keyup)="filter($event,key.value)" name="key" id="key" class="text_u" type="text"  placeholder="Search for Item by Name, Category or Price">
                     <input class="submit_u" type="submit" value="">
                 </div>
             </div>
         </div>
-        <div class="body_content_view_content">
+        <div class="body_content_view_content" [@FedInUp]='state'>
             <div class="body_content_view_content_top_user">
                 <div class="col-xs-4">
                     <h3>User Information</h3>
                     <span class="user_add"></span>
                 </div>
                 <div class="col-xs-8">
-                    <span>
-                        View All ITEMS <img src="app/components/images/View-All-Users-arrow.png" alt="">
-                    </span>
+                    <!--<span>
+                        View All ITEMS <img src="app/components/images/View All Users-arrow.png" alt="">
+                    </span>-->
                     <span>
                         <div id="current_page">1</div>
-                        <img src="app/components/images/next-user.png"  (click)="next()" alt="" id="next_page">
-                        <img src="app/components/images/previous-user.png"  alt="">
+                        <img src="app/components/images/next.png"  (click)="next()" alt="" id="next_page">
+                        <img src="app/components/images/previous.png"  alt="">
                     </span>
                     <span id="total_items_text"></span>
                 </div>
@@ -53,30 +53,33 @@
                         </tr>
                     </thead>
                     <tbody item-width="100%">
-                        <tr *ngFor="let post of xx" (keydown.Enter)="update(phonenum.value,balance.value,passcode.value,userid.value)">
-                                   
-                                        <td class="first-td">
-                                            <span class="minus-user"></span>
-                                            <input [(ngModel)]="post.customer_id" name="customer_id" id="customer_id" #customerid>
-                                            
-                                        </td>
-                                        <td>
-                                            <input [(ngModel)]="post.phone_num" name="phonenum" id="phonenum" #phonenum>
-                                        </td>
-                                        <td>
-                                            <input [(ngModel)]="post.balance" name="balance" id="balance" #balance>
-                                        </td>
-                                        <td>
-                                            <input [(ngModel)]="post.passcode" name="passcode" id="passcode" #passcode>
-                                        </td>
-                                        <td>
-                                            <input [(ngModel)]="post.signup_date" name="signup_date" id="signup_date" #signupdate>
-                                            
-                                        </td>
-                                        <td style="display: none">
-                                                    <input [(ngModel)]="post._id" name="userid" id="userid" #userid> 
-                                        </td>
-                                   
+                       <!-- <tr *ngFor="let post of xx" (keydown.Enter)="update(phonenum.value,balance.value,passcode.value,userid.value)">-->
+                        <tr *ngFor="let post of xx">
+                                    <td class="first-td">
+                                        <span class="minus-user"></span>
+                                        <!--<input [(ngModel)]="post.customer_id" name="customer_id" id="customer_id" #customerid (change)="update(post)">-->
+                                         <input [(ngModel)]="post._id" name="customer_id" id="customer_id" #customerid (change)="update(post)">
+                                    </td>
+                                    <td>
+                                        <!--<input [(ngModel)]="post.phone_num" name="phonenum" id="phonenum" #phonenum (change)="update(post)">-->
+                                         <input [ngModel]="post.phone_num | numberPipe" (ngModelChange)="post.phone_num = $event" id ="phone_num" name="phone_num" type="text" (change)="phoneUpdate(post)" #phonenum/>
+                                        
+                                    </td>
+                                    <td>
+                                        <!--<input [(ngModel)]="post.balance" name="balance" id="balance" #balance (change)="update(post)">-->
+                                         <input [ngModel]="post.balance | myCurrencyPipe" (ngModelChange)="post.balance = $event"  id ="balance" name="balance" type="text" (change)="blanceUpdate(post)" #balance/>
+                                    </td>
+                                    <td>
+                                        <input [(ngModel)]="post.passcode" name="passcode" id="passcode" #passcode (change)="update(post)">
+                                    </td>
+                                    <td>
+                                        <!--<input [(ngModel)]="post.signup_date" name="signup_date" id="signup_date" #signupdate>-->
+                                        {{post.signup_date | date: 'dd/MM/yyyy'}}
+                                        
+                                    </td>
+                                    <td style="display: none">
+                                                <input [(ngModel)]="post._id" name="userid" id="userid" #userid> 
+                                    </td>
                         </tr>
                     </tbody>
                 </table>

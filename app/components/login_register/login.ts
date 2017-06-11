@@ -6,6 +6,9 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { contentHeaders } from './headers';
 import { AuthHttp } from 'angular2-jwt';
+import {Annimation} from '../animations/animation';
+
+
 @Component({
    selector: 'login',
     templateUrl: 'app/components/login_register/login.html',

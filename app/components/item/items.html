@@ -11,28 +11,28 @@
                 </div>
             </div>
         </div>
-<div class="body_content_view_main index_cont">
+<div class="body_content_view_main index_cont" [@BackgroundfadeIn]='state'>
         <div class="body_content_view_header">
-            <div class="col-xs-4">
+            <div class="col-xs-4" [@FedInLeft]='state'>
                 <img src="app/components/images/items-tab-icon.png" alt="">
                 <h2>Items</h2>
             </div>
-            <div class="col-xs-8">
+            <div class="col-xs-8" [@FedInRight]='state'>
                 <div class="body_content_view_header_secrch">
                     <input #key (keyup)="filter($event,key.value)" name="key" id="key" class="text" placeholder="Filter products by Name, price barcode" type="text">
                     <input class="submit" type="submit" value="">
                 </div>
             </div>
         </div>
-        <div class="body_content_view_content">
+        <div class="body_content_view_content" [@FedInUp]='state'>
             <div class="body_content_view_content_top">
                 <div class="col-xs-4"><h3>ITEMS Information</h3>
                     <span class="item_add"></span>
                 </div>
                 <div class="col-xs-8">
-                    <span>
+                    <!--<span>
                         View All ITEMS <img src="app/components/images/View All Users-arrow.png" alt="">
-                    </span>
+                    </span>-->
                     <span>
                         <div id="current_page"></div>
                         <img src="app/components/images/next.png"  (click)="next()" alt="" id="next_page">
@@ -42,7 +42,7 @@
                 </div>
             </div>
           
-            <div class="body_content_view_content_table">
+            <div class="body_content_view_content_table" >
                 <table id="itemsTable" class="table table-bordered table-hover" width="auto">
                     <thead item-width="100%">
                     <tr>
@@ -84,7 +84,11 @@
                                                 <input type="text" [(ngModel)]="post.barcode" name="barcode" id ="barcode" (change)="update(post)" #barcode/>
                                             </td>
                                             <td>
-                                                <input type="text" [(ngModel)]="post.price" name="price" id ="price" (change)="update(post)" #price/>
+                                               <!--<input type="text"  [(ngModel)]="post.price" name="price"  id ="price" (change)="update(post)" #price/>-->
+                                                <!--{{post.price | currency:'USD':true:'1.2-2'}}-->
+                                                <!--<input type="text" [ngModel]="post.price | myCurrencyPipe" (ngModelChange)="post.price = $event" name="price" id ="price" (change)="priceUpdate(post)"/>-->
+                                                <input type="text" [ngModel]="post.price | myCurrencyPipe" (ngModelChange)="post.price = $event" name="price" id ="price" (change)="priceUpdate(post)"/>
+                                                
                                             </td>
                                             <td>
                                                 <input type="text" [(ngModel)]="post.taxable" name="taxable" id="taxable" (click)="toggletaxable(post)" (change)="update(post)" #taxable/>

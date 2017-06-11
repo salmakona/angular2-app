@@ -9,15 +9,18 @@ import {Http, Response, Headers, RequestOptions}from '@angular/http';
 import { Location }               from '@angular/common';
 import "rxjs/add/operator/distinctUntilChanged";
 import "rxjs/add/operator/debounceTime";
+import {Annimation} from '../animations/animation';
 
 @Component({
 
     selector: 'items',
-    templateUrl:'app/components/item/items.html'
+    templateUrl:'app/components/item/items.html',
+     animations: [Annimation]
 })
 
 export class ItemComponent implements OnInit{
 
+    value = 'test';
     public items:any[];
     key        = 'key';
     keyControl = new FormControl(); 
@@ -90,11 +93,9 @@ export class ItemComponent implements OnInit{
     }
  
      next() {
-            
         this.jsonURL1 = this.baseURL+this.nextURL;
         this.loadpagi();
         console.log("Next "+this.jsonURL1);
-            
     }
 
     previous() {
@@ -106,6 +107,7 @@ export class ItemComponent implements OnInit{
     ngOnInit(){
         this.jsonURL = 'https://api.grabngo.market/api/items';
         this.load();
+        
     }
 
     dd:string;
@@ -113,12 +115,18 @@ export class ItemComponent implements OnInit{
     submitted = false;
     private getUrl ='https://api.grabngo.market/api/items/id';
     private headers = new Headers({'Content-Type': 'application/json'});
-
+    x:any[]=[];
+    barcode:any;
+    description:any;
     update(post:any){
 
             var data = post
-            console.log("Updated");
-            console.log(data);
+            // console.log("Updated");
+             console.log(data);
+           
+
+   
+           
             const url = `${this.getUrl}/${post._id}`;
             console.log(url);
             return this.http.put(url, JSON.stringify(data), {headers: this.headers}).toPromise().then(
@@ -127,8 +135,31 @@ export class ItemComponent implements OnInit{
                     
                 }
             )
-             .catch(this.handleError);;
+             .catch(this.handleError);
 
+    }
+
+    priceUpdate(post:any){
+
+            this.x = post.price;
+            console.log(typeof(this.x));
+            var str = this.x.toString();
+            var price = str.substring(1);
+            console.log(price);
+
+            var  data1={
+                price: price,
+            }
+             console.log(data1);
+             const url = `${this.getUrl}/${post._id}`;
+            console.log(url);
+            return this.http.put(url, JSON.stringify(data1), {headers: this.headers}).toPromise().then(
+                () => {
+                    this.load();
+                    
+                }
+            )
+             .catch(this.handleError);
     }
 
     toggletaxable(value:any){
@@ -164,6 +195,29 @@ export class ItemComponent implements OnInit{
   
     }
 
+    
+    updateAmount(data:any){
+       
+        console.log(data);
+        this.x = data.price;
+        var str = this.x.toString();
+        var price = str.substring(1);
+         console.log(price);
+
+         var x ={
+             price: price
+         }
+        let body = JSON.stringify({price});
+        console.log(body);
+        //   const url = `${this.getUrl}/${data._id}`;
+        //    console.log(url);
+        //   return this.http.put(url, JSON.stringify(body), {headers: this.headers}).toPromise().then(
+        //         () => {
+        //             this.load();
+        //         }
+        //     )
+        //      .catch(this.handleError);
+    }
     
 }
 
